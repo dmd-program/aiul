@@ -5,3 +5,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&family=Kanit:wght@300;700&display=swap');
 
 @import "main";
+
+.modifier-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.modifier-badge img {
+  height: 18px;
+  width: 18px;
+  margin-right: 6px;
+}
+
+/* Color coding for each modifier */
+.modifier-badge.mod-3d {
+  background-color: #4285F4; /* Blue for 3D */
+}
