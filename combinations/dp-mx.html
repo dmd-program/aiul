@@ -77,30 +77,53 @@
     
     <div class="license-info">
       <h1>AIUL-DP-MX</h1>
-      <p class="license-description">Directed Production for Mixed Media</p>
+      <p class="license-description"><span id="license-name">Directed Production</span> for <span id="modifier-name">Mixed Media</span></p>
+      <p class="version-info" id="version-info" style="font-size: 0.9em; color: #666; margin-top: 0.5rem;"></p>
     </div>
   </div>
 
   
   <div class="combination-image">
-    <img src="/aiul/assets/images/licenses/aiul-dp-mx.png" alt="AIUL-DP-MX" />
+    <img src="/aiul/assets/images/licenses/aiul-dp-mx.png" alt="AIUL-DP-MX" id="combination-image" />
   </div>
   
   
   <div class="license-content combination-content">
     <h2>About This License Combination</h2>
-    <p>This is a combination of the <a href="/aiul/licenses/dp.html">AIUL-DP</a> license (Directed Production) 
-    and the <a href="/aiul/modifiers/mixed-media.html">MX</a> modifier (Mixed Media).</p>
+    <p>This is a combination of the <a href="/aiul/licenses/dp.html" id="license-link">AIUL-DP</a> license (<span id="license-full-name">Directed Production</span>) 
+    and the <a href="/aiul/modifiers/mixed-media.html" id="modifier-link">MX</a> modifier (<span id="modifier-full-name">Mixed Media</span>).</p>
+    
+    <div class="version-selector" style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+      <h3>Version Selection</h3>
+      <p>View specific versions of this combination:</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+        <div>
+          <label for="license-version">License Version:</label>
+          <select id="license-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+        <div>
+          <label for="modifier-version">Modifier Version:</label>
+          <select id="modifier-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+        URL for this version: <code id="version-url" style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">/combinations/dp-mx.html</code>
+      </p>
+    </div>
     
     <div class="combination-details">
       <div class="license-details">
-        <h3>License: AIUL-DP (Directed Production)</h3>
-        <p><strong>Description:</strong> AI-assisted creation is permitted with clear direction and modification from the student.</p>
-        <p><strong>What it means:</strong> you may use AI-assisted creation with clear direction and modification from you. The concept, direction, and post-processing should demonstrate your creative input.</p>
+        <h3>License: <span id="license-code-header">AIUL-DP</span> (<span id="license-name-header">Directed Production</span>)</h3>
+        <p><strong>Description:</strong> <span id="license-desc">AI-assisted creation is permitted with clear direction and modification from the student.</span></p>
+        <p><strong>What it means:</strong> <span id="license-syllabus">you may use AI-assisted creation with clear direction and modification from you. The concept, direction, and post-processing should demonstrate your creative input.</span></p>
         
         <div class="when-to-use">
           <h4>When to Use</h4>
-          <ul>
+          <ul id="license-when-list">
             
               <li>The focus is on concept, direction, and post-processing rather than initial creation</li>
             
@@ -111,155 +134,68 @@
           </ul>
         </div>
         
-        <p><a href="/aiul/licenses/dp.html" class="button-link">View Full AIUL-DP License</a></p>
+        <p><a href="/aiul/licenses/dp.html" class="button-link" id="license-full-link">View Full AIUL-DP License</a></p>
       </div>
       
       <div class="modifier-details">
-        <h3>Modifier: MX (Mixed Media)</h3>
-        <p><strong>Description:</strong> For assignments that span multiple media types</p>
+        <h3>Modifier: <span id="modifier-code-header">MX</span> (<span id="modifier-name-header">Mixed Media</span>)</h3>
+        <p><strong>Description:</strong> <span id="modifier-desc">For assignments that span multiple media types</span></p>
+        <p><strong>Example Use Cases:</strong> <span id="modifier-example">See the full modifier page for examples.</span></p>
         
-        <div class="applicable-tools">
-          <h4>Applicable Tools</h4>
-          <ul>
-  <li>Any combination of tools from other categories</li>
-  <li>Integrative platforms that combine multiple media types</li>
-  <li>AI project management and coordination tools</li>
-</ul>
-        </div>
-        
-        <div class="considerations">
-          <h4>Considerations</h4>
-          <ul>
-  <li>Mixed media projects may need different AI permissions for different components</li>
-  <li>Consider whether to apply a single AIUL tag to the entire project or separate tags for each component</li>
-  <li>Documentation becomes especially important to track AI usage across different media</li>
-  <li>Integration and cohesion of elements may be more important than individual component creation</li>
-</ul>
-        </div>
-        
-        <p><a href="/aiul/modifiers/mixed-media.html" class="button-link">View Full MX Modifier</a></p>
+        <p><a href="/aiul/modifiers/mixed-media.html" class="button-link" id="modifier-full-link">View Full MX Modifier</a></p>
       </div>
     </div>
-  </div>
-  
-  <div class="license-syllabus">
-    <h2>Sample Syllabus Language</h2>
-    <div class="syllabus-example" id="syllabusText">
-      <p><strong>AIUL-DP-MX:</strong> This assignment is tagged AIUL-DP-MX (Directed Production for Mixed Media), which means you may use AI-assisted creation with clear direction and modification from you. The concept, direction, and post-processing should demonstrate your creative input. This applies specifically to mixed media.</p>
-      
-      
-      <p><strong>Documentation Requirement:</strong> For this assignment, you must include documentation of your AI usage process including:</p>
-      <ul>
-        <li>Which AI tools you used</li>
-        <li>How you used them in your process</li>
-        <li>What prompts or inputs you provided</li>
-        <li>How you modified or integrated AI outputs</li>
-        <li>Your reflections on the human-AI collaboration process</li>
-      </ul>
-      
-    </div>
-    <button class="copy-button syllabus-copy" id="copySyllabus">Copy Syllabus Language</button>
-  </div>
-  
-  <div class="license-navigation">
-    <h2>Other License Combinations</h2>
-    <div class="other-combinations">
-      <h3>Other AIUL-DP combinations:</h3>
-      <div class="license-grid">
-        
-          <a href="/aiul/combinations/dp-wr.html" class="license-link">
-            <div class="license-icon">AIUL-DP-WR</div>
-            <div class="license-name">Directed Production for Writing</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-im.html" class="license-link">
-            <div class="license-icon">AIUL-DP-IM</div>
-            <div class="license-name">Directed Production for Image</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-vd.html" class="license-link">
-            <div class="license-icon">AIUL-DP-VD</div>
-            <div class="license-name">Directed Production for Video</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-au.html" class="license-link">
-            <div class="license-icon">AIUL-DP-AU</div>
-            <div class="license-name">Directed Production for Audio</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-3d.html" class="license-link">
-            <div class="license-icon">AIUL-DP-3D</div>
-            <div class="license-name">Directed Production for 3D Design</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-tr.html" class="license-link">
-            <div class="license-icon">AIUL-DP-TR</div>
-            <div class="license-name">Directed Production for Traditional Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-co.html" class="license-link">
-            <div class="license-icon">AIUL-DP-CO</div>
-            <div class="license-name">Directed Production for Code</div>
-          </a>
-        
-      </div>
-      
-      <h3>Other MX combinations:</h3>
-      <div class="license-grid">
-        
-          <a href="/aiul/combinations/na-mx.html" class="license-link">
-            <div class="license-icon">AIUL-NA-MX</div>
-            <div class="license-name">Not Allowed for Mixed Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/wa-mx.html" class="license-link">
-            <div class="license-icon">AIUL-WA-MX</div>
-            <div class="license-name">With Approval for Mixed Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-mx.html" class="license-link">
-            <div class="license-icon">AIUL-CD-MX</div>
-            <div class="license-name">Conceptual Development for Mixed Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/tc-mx.html" class="license-link">
-            <div class="license-icon">AIUL-TC-MX</div>
-            <div class="license-name">Transformative Collaboration for Mixed Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/iu-mx.html" class="license-link">
-            <div class="license-icon">AIUL-IU-MX</div>
-            <div class="license-name">Integrated Usage for Mixed Media</div>
-          </a>
-        
-      </div>
-    </div>
+
+    
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Copy to clipboard functionality
-  const copySyllabus = document.getElementById('copySyllabus');
-  const syllabusText = document.getElementById('syllabusText');
+// Handle version query parameters
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const licenseVersion = urlParams.get('license') || '1.0.0';
+  const modifierVersion = urlParams.get('modifier') || '1.0.0';
+  const baseUrl = window.location.pathname;
   
-  if (copySyllabus && syllabusText) {
-    copySyllabus.addEventListener('click', function() {
-      navigator.clipboard.writeText(syllabusText.textContent)
-        .then(() => {
-          const originalText = this.textContent;
-          this.textContent = 'Copied!';
-          setTimeout(() => {
-            this.textContent = originalText;
-          }, 2000);
-        })
-        .catch(err => {
-          console.error('Could not copy text: ', err);
-        });
-    });
+  // Set version selectors
+  document.getElementById('license-version').value = licenseVersion;
+  document.getElementById('modifier-version').value = modifierVersion;
+  
+  // Update version URL display
+  function updateVersionUrl() {
+    const lv = document.getElementById('license-version').value;
+    const mv = document.getElementById('modifier-version').value;
+    const newUrl = baseUrl + '?license=' + lv + '&modifier=' + mv;
+    document.getElementById('version-url').textContent = window.location.origin + newUrl;
   }
-});
+  
+  // Add change listeners
+  document.getElementById('license-version').addEventListener('change', function() {
+    const lv = this.value;
+    const mv = document.getElementById('modifier-version').value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  document.getElementById('modifier-version').addEventListener('change', function() {
+    const lv = document.getElementById('license-version').value;
+    const mv = this.value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  // Show version info if non-default
+  if (licenseVersion !== '1.0.0' || modifierVersion !== '1.0.0') {
+    document.getElementById('version-info').textContent = 
+      'Viewing License v' + licenseVersion + ' + Modifier v' + modifierVersion;
+  }
+  
+  updateVersionUrl();
+  
+  // Future: Load version-specific content via AJAX
+  // For now, all versions use the same content (v1.0.0)
+})();
 </script>
+
     </main>
     <!-- Footer -->
 <footer>

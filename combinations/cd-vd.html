@@ -77,30 +77,53 @@
     
     <div class="license-info">
       <h1>AIUL-CD-VD</h1>
-      <p class="license-description">Conceptual Development for Video</p>
+      <p class="license-description"><span id="license-name">Conceptual Development</span> for <span id="modifier-name">Video</span></p>
+      <p class="version-info" id="version-info" style="font-size: 0.9em; color: #666; margin-top: 0.5rem;"></p>
     </div>
   </div>
 
   
   <div class="combination-image">
-    <img src="/aiul/assets/images/licenses/aiul-cd-vd.png" alt="AIUL-CD-VD" />
+    <img src="/aiul/assets/images/licenses/aiul-cd-vd.png" alt="AIUL-CD-VD" id="combination-image" />
   </div>
   
   
   <div class="license-content combination-content">
     <h2>About This License Combination</h2>
-    <p>This is a combination of the <a href="/aiul/licenses/cd.html">AIUL-CD</a> license (Conceptual Development) 
-    and the <a href="/aiul/modifiers/video.html">VD</a> modifier (Video).</p>
+    <p>This is a combination of the <a href="/aiul/licenses/cd.html" id="license-link">AIUL-CD</a> license (<span id="license-full-name">Conceptual Development</span>) 
+    and the <a href="/aiul/modifiers/video.html" id="modifier-link">VD</a> modifier (<span id="modifier-full-name">Video</span>).</p>
+    
+    <div class="version-selector" style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+      <h3>Version Selection</h3>
+      <p>View specific versions of this combination:</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+        <div>
+          <label for="license-version">License Version:</label>
+          <select id="license-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+        <div>
+          <label for="modifier-version">Modifier Version:</label>
+          <select id="modifier-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+        URL for this version: <code id="version-url" style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">/combinations/cd-vd.html</code>
+      </p>
+    </div>
     
     <div class="combination-details">
       <div class="license-details">
-        <h3>License: AIUL-CD (Conceptual Development)</h3>
-        <p><strong>Description:</strong> AI tools may be used for research and ideation, but the final work must be entirely student-generated.</p>
-        <p><strong>What it means:</strong> you may use AI tools for research and idea generation, but the final work must be entirely your own. You must document any AI tools used in your process.</p>
+        <h3>License: <span id="license-code-header">AIUL-CD</span> (<span id="license-name-header">Conceptual Development</span>)</h3>
+        <p><strong>Description:</strong> <span id="license-desc">AI tools may be used for research and ideation, but the final work must be entirely student-generated.</span></p>
+        <p><strong>What it means:</strong> <span id="license-syllabus">you may use AI tools for research and idea generation, but the final work must be entirely your own. You must document any AI tools used in your process.</span></p>
         
         <div class="when-to-use">
           <h4>When to Use</h4>
-          <ul>
+          <ul id="license-when-list">
             
               <li>Students can benefit from AI-assisted research or ideation</li>
             
@@ -111,158 +134,68 @@
           </ul>
         </div>
         
-        <p><a href="/aiul/licenses/cd.html" class="button-link">View Full AIUL-CD License</a></p>
+        <p><a href="/aiul/licenses/cd.html" class="button-link" id="license-full-link">View Full AIUL-CD License</a></p>
       </div>
       
       <div class="modifier-details">
-        <h3>Modifier: VD (Video)</h3>
-        <p><strong>Description:</strong> For assignments involving moving images</p>
+        <h3>Modifier: <span id="modifier-code-header">VD</span> (<span id="modifier-name-header">Video</span>)</h3>
+        <p><strong>Description:</strong> <span id="modifier-desc">For assignments involving moving images</span></p>
+        <p><strong>Example Use Cases:</strong> <span id="modifier-example">See the full modifier page for examples.</span></p>
         
-        <div class="applicable-tools">
-          <h4>Applicable Tools</h4>
-          <ul>
-  <li>Text-to-video generators</li>
-  <li>AI video editing assistants</li>
-  <li>Motion tracking and rotoscoping tools</li>
-  <li>AI-assisted animation tools</li>
-  <li>Deepfake and face-swapping technologies</li>
-  <li>Video enhancement and upscaling tools</li>
-</ul>
-        </div>
-        
-        <div class="considerations">
-          <h4>Considerations</h4>
-          <ul>
-  <li>Video projects often involve multiple stages where AI could be used differently</li>
-  <li>Consider separate guidelines for pre-production, production, and post-production</li>
-  <li>Time-intensive manual tasks might benefit from AI assistance even in otherwise restricted projects</li>
-  <li>Be clear about expectations for original footage versus AI-generated content</li>
-</ul>
-        </div>
-        
-        <p><a href="/aiul/modifiers/video.html" class="button-link">View Full VD Modifier</a></p>
+        <p><a href="/aiul/modifiers/video.html" class="button-link" id="modifier-full-link">View Full VD Modifier</a></p>
       </div>
     </div>
-  </div>
-  
-  <div class="license-syllabus">
-    <h2>Sample Syllabus Language</h2>
-    <div class="syllabus-example" id="syllabusText">
-      <p><strong>AIUL-CD-VD:</strong> This assignment is tagged AIUL-CD-VD (Conceptual Development for Video), which means you may use AI tools for research and idea generation, but the final work must be entirely your own. You must document any AI tools used in your process. This applies specifically to video.</p>
-      
-      
-      <p><strong>Documentation Requirement:</strong> For this assignment, you must include documentation of your AI usage process including:</p>
-      <ul>
-        <li>Which AI tools you used</li>
-        <li>How you used them in your process</li>
-        <li>What prompts or inputs you provided</li>
-        <li>How you modified or integrated AI outputs</li>
-        <li>Your reflections on the human-AI collaboration process</li>
-      </ul>
-      
-    </div>
-    <button class="copy-button syllabus-copy" id="copySyllabus">Copy Syllabus Language</button>
-  </div>
-  
-  <div class="license-navigation">
-    <h2>Other License Combinations</h2>
-    <div class="other-combinations">
-      <h3>Other AIUL-CD combinations:</h3>
-      <div class="license-grid">
-        
-          <a href="/aiul/combinations/cd-wr.html" class="license-link">
-            <div class="license-icon">AIUL-CD-WR</div>
-            <div class="license-name">Conceptual Development for Writing</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-im.html" class="license-link">
-            <div class="license-icon">AIUL-CD-IM</div>
-            <div class="license-name">Conceptual Development for Image</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-au.html" class="license-link">
-            <div class="license-icon">AIUL-CD-AU</div>
-            <div class="license-name">Conceptual Development for Audio</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-3d.html" class="license-link">
-            <div class="license-icon">AIUL-CD-3D</div>
-            <div class="license-name">Conceptual Development for 3D Design</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-tr.html" class="license-link">
-            <div class="license-icon">AIUL-CD-TR</div>
-            <div class="license-name">Conceptual Development for Traditional Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-mx.html" class="license-link">
-            <div class="license-icon">AIUL-CD-MX</div>
-            <div class="license-name">Conceptual Development for Mixed Media</div>
-          </a>
-        
-          <a href="/aiul/combinations/cd-co.html" class="license-link">
-            <div class="license-icon">AIUL-CD-CO</div>
-            <div class="license-name">Conceptual Development for Code</div>
-          </a>
-        
-      </div>
-      
-      <h3>Other VD combinations:</h3>
-      <div class="license-grid">
-        
-          <a href="/aiul/combinations/na-vd.html" class="license-link">
-            <div class="license-icon">AIUL-NA-VD</div>
-            <div class="license-name">Not Allowed for Video</div>
-          </a>
-        
-          <a href="/aiul/combinations/wa-vd.html" class="license-link">
-            <div class="license-icon">AIUL-WA-VD</div>
-            <div class="license-name">With Approval for Video</div>
-          </a>
-        
-          <a href="/aiul/combinations/tc-vd.html" class="license-link">
-            <div class="license-icon">AIUL-TC-VD</div>
-            <div class="license-name">Transformative Collaboration for Video</div>
-          </a>
-        
-          <a href="/aiul/combinations/dp-vd.html" class="license-link">
-            <div class="license-icon">AIUL-DP-VD</div>
-            <div class="license-name">Directed Production for Video</div>
-          </a>
-        
-          <a href="/aiul/combinations/iu-vd.html" class="license-link">
-            <div class="license-icon">AIUL-IU-VD</div>
-            <div class="license-name">Integrated Usage for Video</div>
-          </a>
-        
-      </div>
-    </div>
+
+    
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Copy to clipboard functionality
-  const copySyllabus = document.getElementById('copySyllabus');
-  const syllabusText = document.getElementById('syllabusText');
+// Handle version query parameters
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const licenseVersion = urlParams.get('license') || '1.0.0';
+  const modifierVersion = urlParams.get('modifier') || '1.0.0';
+  const baseUrl = window.location.pathname;
   
-  if (copySyllabus && syllabusText) {
-    copySyllabus.addEventListener('click', function() {
-      navigator.clipboard.writeText(syllabusText.textContent)
-        .then(() => {
-          const originalText = this.textContent;
-          this.textContent = 'Copied!';
-          setTimeout(() => {
-            this.textContent = originalText;
-          }, 2000);
-        })
-        .catch(err => {
-          console.error('Could not copy text: ', err);
-        });
-    });
+  // Set version selectors
+  document.getElementById('license-version').value = licenseVersion;
+  document.getElementById('modifier-version').value = modifierVersion;
+  
+  // Update version URL display
+  function updateVersionUrl() {
+    const lv = document.getElementById('license-version').value;
+    const mv = document.getElementById('modifier-version').value;
+    const newUrl = baseUrl + '?license=' + lv + '&modifier=' + mv;
+    document.getElementById('version-url').textContent = window.location.origin + newUrl;
   }
-});
+  
+  // Add change listeners
+  document.getElementById('license-version').addEventListener('change', function() {
+    const lv = this.value;
+    const mv = document.getElementById('modifier-version').value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  document.getElementById('modifier-version').addEventListener('change', function() {
+    const lv = document.getElementById('license-version').value;
+    const mv = this.value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  // Show version info if non-default
+  if (licenseVersion !== '1.0.0' || modifierVersion !== '1.0.0') {
+    document.getElementById('version-info').textContent = 
+      'Viewing License v' + licenseVersion + ' + Modifier v' + modifierVersion;
+  }
+  
+  updateVersionUrl();
+  
+  // Future: Load version-specific content via AJAX
+  // For now, all versions use the same content (v1.0.0)
+})();
 </script>
+
     </main>
     <!-- Footer -->
 <footer>
