@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Clear existing entries before rendering
+        entriesList.innerHTML = '';
+
         entries.forEach((entry, index) => {
             const div = document.createElement('div');
             div.className = 'entry-item';
@@ -314,9 +317,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const padding = 20;
         const baseRowSpacing = 45; // Base height for a row with no details
         const detailSpacing = 20;  // Extra height per detail line
+        const topSpacing = 35; // Space between header line and first entry
+        const bottomSpacing = 0; // Space after last entry
         
         // Calculate total height
-        let totalHeight = headerHeight + 30; // Initial Y offset
+        let totalHeight = headerHeight + topSpacing; // Header + top spacing
         entries.forEach(e => {
             let entryHeight = baseRowSpacing;
             if (e.tools) entryHeight += detailSpacing;
@@ -324,8 +329,8 @@ document.addEventListener('DOMContentLoaded', function() {
             totalHeight += entryHeight;
         });
         
-        // Add a bit of bottom padding
-        totalHeight += padding;
+        // Add bottom spacing
+        totalHeight += bottomSpacing;
 
         let svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${totalHeight}" viewBox="0 0 ${width} ${totalHeight}">
@@ -348,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <line x1="${padding}" y1="55" x2="${width-padding}" y2="55" stroke="black" stroke-width="2"/>
 `;
 
-        let y = 90;
+        let y = headerHeight + topSpacing;
         entries.forEach(e => {
             // Get modifier short code for display
             const modifierCode = getModifierCode(e.modifier);
@@ -357,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const modWidth = (modifierCode.length * 9) + 24;
             
             svg += `<rect x="${padding}" y="${y-18}" width="${modWidth}" height="26" class="mod-bg"/>`;
-            svg += `<text x="${padding + 12}" y="${y}" class="mod-text">${modifierCode}</text>`;
+            svg += `<text x="${padding + 12}" y="${y}" class="mod-text">${escapeXml(modifierCode)}</text>`;
             
             // Arrow
             svg += `<text x="${padding + modWidth + 10}" y="${y}" class="arrow">→</text>`;
@@ -371,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${iconPath}
             </g>`;
             
-            svg += `<text x="${iconX + 24}" y="${y}" class="usage">${e.usageName}</text>`;
+            svg += `<text x="${iconX + 24}" y="${y}" class="usage">${escapeXml(e.usageName)}</text>`;
             
             // Details
             let currentEntryHeight = baseRowSpacing;
@@ -406,68 +411,64 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const svgContent = createSVG();
             
-            // Create canvas and render SVG using canvas 2D context
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+            // Create an image element to load the SVG
+            const img = new Image();
             
             // Parse SVG dimensions
             const svgMatch = svgContent.match(/width="(\d+)"\s+height="(\d+)"/);
             const svgWidth = parseInt(svgMatch[1]) || 600;
             const svgHeight = parseInt(svgMatch[2]) || 400;
             
-            const scale = 4; // High resolution
-            canvas.width = svgWidth * scale;
-            canvas.height = svgHeight * scale;
-            
-            // Create an SVG element and render it to canvas
-            const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-            const url = URL.createObjectURL(svgBlob);
-            
-            const img = new Image();
-            
-            // Set timeout in case image loading hangs
-            const timeout = setTimeout(() => {
-                URL.revokeObjectURL(url);
-                console.error('SVG image loading timeout');
-                alert('Error generating PNG. The SVG took too long to load. Please try downloading SVG instead.');
-            }, 5000);
-            
-            img.onload = function() {
-                clearTimeout(timeout);
-                try {
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.scale(scale, scale);
-                    ctx.drawImage(img, 0, 0);
-                    
-                    // Download
-                    canvas.toBlob(function(blob) {
-                        const downloadUrl = URL.createObjectURL(blob);
-                        const link = document.createElement('a');
-                        link.download = 'ai-usage-declaration.png';
-                        link.href = downloadUrl;
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(downloadUrl);
-                        URL.revokeObjectURL(url);
-                    }, 'image/png');
-                } catch (drawError) {
-                    console.error('Error drawing to canvas:', drawError);
-                    alert('Error drawing to canvas. Please try downloading SVG instead.');
-                    URL.revokeObjectURL(url);
-                }
-            };
-            
-            img.onerror = function(error) {
-                clearTimeout(timeout);
-                console.error('Failed to load SVG image:', error);
-                console.error('SVG content first 500 chars:', svgContent.substring(0, 500));
+            // Set up error handling
+            img.onerror = function() {
+                console.error('Error loading SVG into image');
                 alert('Error generating PNG. Please try downloading SVG instead.');
-                URL.revokeObjectURL(url);
             };
             
-            img.src = url;
+            // Set up the onload handler to convert to canvas when image loads
+            img.onload = function() {
+                // For modern displays, use a much higher scale factor
+                const scale = 8; // Fixed high resolution scale
+                
+                // Get the intrinsic size of the SVG
+                const width = img.naturalWidth || img.width;
+                const height = img.naturalHeight || img.height;
+                
+                // Create a canvas with the scaled dimensions
+                const canvas = document.createElement('canvas');
+                canvas.width = width * scale;
+                canvas.height = height * scale;
+                
+                // Get 2d context and enable high quality rendering
+                const ctx = canvas.getContext('2d');
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                
+                // Fill with white background
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw the scaled image
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                
+                // Create a download link with high-quality PNG
+                const link = document.createElement('a');
+                link.download = 'ai-usage-declaration.png';
+                
+                // Use maximum quality PNG encoding
+                link.href = canvas.toDataURL('image/png', 1.0);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Clean up
+                URL.revokeObjectURL(img.src);
+            };
+            
+            // Load the SVG as a blob URL
+            const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
+            const svgUrl = URL.createObjectURL(svgBlob);
+            img.src = svgUrl;
             
         } catch (error) {
             console.error('Error generating PNG:', error);
@@ -477,9 +478,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function downloadAsSVG() {
         const svgContent = createSVG();
-        // Add XML declaration for better compatibility
-        const svgWithDeclaration = `<?xml version="1.0" encoding="UTF-8"?>\n${svgContent}`;
-        const blob = new Blob([svgWithDeclaration], { type: 'image/svg+xml;charset=utf-8' });
+        // createSVG() already includes XML declaration
+        const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.download = 'ai-usage-declaration.svg';
