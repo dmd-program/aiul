@@ -95,6 +95,11 @@
 /* Accessibility helper class for screen readers */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
 
+/* Skip link for keyboard navigation */
+.skip-link { position: absolute; top: -40px; left: 0; background: #1E407C; color: #FFFFFF; padding: 0.75rem 1.5rem; text-decoration: none; z-index: 100; border-radius: 0 0 4px 0; font-weight: 500; }
+
+.skip-link:focus { top: 0; outline: 2px solid #FFD100; outline-offset: -4px; }
+
 /* Base styling */
 body { font-family: 'Roboto', sans-serif; margin: 0; background-color: #F2F2F2; color: #444444; }
 
@@ -130,6 +135,8 @@ nav a { color: #FFFFFF; text-decoration: none; font-size: 1rem; font-family: 'Ro
 
 nav a:hover { background-color: #1A3A63; color: #FFD100; }
 
+nav a:focus { outline: 2px solid #FFD100; outline-offset: 2px; }
+
 nav a.active { background-color: #1A3A63; border-bottom: 3px solid #FFD100; }
 
 .hero { background: url("../images/hero-image.jpg") no-repeat center center/cover; color: #FFFFFF; padding: 100px 20px; text-align: center; position: relative; }
@@ -145,6 +152,8 @@ nav a.active { background-color: #1A3A63; border-bottom: 3px solid #FFD100; }
 .hero a { padding: 1rem 2rem; background: #FFD100; color: #1E407C; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; display: inline-block; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; }
 
 .hero a:hover { background-color: #cca700; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+
+.hero a:focus { outline: 2px solid #1E407C; outline-offset: 2px; }
 
 .bold { font-weight: bold; }
 
@@ -164,6 +173,8 @@ nav a.active { background-color: #1A3A63; border-bottom: 3px solid #FFD100; }
 
 .page-content a:hover { color: #1A3A63; border-bottom-color: #FFD100; }
 
+.page-content a:focus { outline: 2px solid #FFD100; outline-offset: 2px; }
+
 /* Progress bar for tag selector */
 .progress-bar { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
 
@@ -172,7 +183,7 @@ nav a.active { background-color: #1A3A63; border-bottom: 3px solid #FFD100; }
 .progress-bar .progress-step.active { background-color: #1E407C; }
 
 /* Form styles */
-form { display: flex; flex-direction: column; gap: 1.5rem; }
+form { display: flex; flex-direction: column; gap: 1.5rem; /* Text inputs and textareas */ /* Checkbox and radio focus */ }
 
 form .form-group label { font-weight: 500; font-family: 'Roboto', sans-serif; margin-bottom: 0.5rem; display: block; color: #1E407C; }
 
@@ -188,11 +199,21 @@ form select { padding: 0.75rem; font-size: 1rem; font-family: 'Roboto', sans-ser
 
 form select:focus { outline: none; border-color: #1E407C; box-shadow: 0 0 0 3px rgba(30, 64, 124, 0.2); }
 
+form input[type="text"], form textarea { padding: 0.75rem; font-size: 1rem; font-family: 'Roboto', sans-serif; border: 1px solid #96BEE6; border-radius: 4px; background-color: #FFFFFF; transition: border-color 0.2s, box-shadow 0.2s; }
+
+form input[type="text"]:focus, form textarea:focus { outline: none; border-color: #1E407C; box-shadow: 0 0 0 3px rgba(30, 64, 124, 0.2); }
+
+form input[type="checkbox"]:focus, form input[type="radio"]:focus { outline: 2px solid #FFD100; outline-offset: 2px; }
+
 button { background-color: #1E407C; color: #FFFFFF; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; font-family: 'Roboto', sans-serif; font-weight: 500; transition: all 0.3s; letter-spacing: 0.5px; text-transform: uppercase; }
 
 button:hover { background-color: #1A3A63; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
 
 button:active { transform: translateY(0); }
+
+button:focus { outline: 2px solid #FFD100; outline-offset: 2px; }
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .summary { border-top: 1px solid #96BEE6; padding-top: 1.5rem; margin-top: 1.5rem; background-color: rgba(150, 190, 230, 0.1); padding: 1.5rem; border-radius: 8px; }
 
@@ -214,7 +235,9 @@ button:active { transform: translateY(0); }
 
 .summary .download-options button#copyTag { background-color: #1A3A63; min-width: 130px; }
 
-.summary .download-options button#downloadStatement { background-color: #FFD100; color: #1E407C; min-width: 200px; }
+.summary .download-options button#downloadStatement { background-color: #FFD100; color: #000000; min-width: 200px; }
+
+.summary .download-options button#downloadStatement:hover { background-color: #E6BC00; }
 
 .summary .download-options .download-message { width: 100%; margin-top: 0.5rem; padding: 0.5rem; border-radius: 4px; }
 

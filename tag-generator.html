@@ -35,6 +35,7 @@
 </head>
 <body>
   <!-- Header & Navigation -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <header>
   <div class="logo tag-text">
     <a href="/aiul/">AIUL</a>
@@ -56,7 +57,7 @@
       
     </ul>
   </nav>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
     <span class="sr-only">Menu</span>
     <div class="hamburger-icon">
       <span class="icon-bar"></span>
@@ -70,7 +71,7 @@
   </button>
 </header>
 
-    <main>
+    <main id="main-content">
       <div class="page-content">
   <h2>AIUL Tag Generator</h2>
   <p>Create custom AIUL tag graphics for different assignment types and media formats. These tags can be used in your syllabus, assignment instructions, or other course materials.</p>
@@ -81,7 +82,7 @@
       
       <div class="form-group">
         <label for="tagType">AIUL License Level:</label>
-        <select id="tagType" class="tag-select">
+        <select id="tagType" class="tag-select" aria-required="true" aria-label="AIUL License Level (required)">
           
           <option value="NA">AIUL-NA (Not Allowed)</option>
           
@@ -107,12 +108,12 @@
       
       <div class="form-group">
         <label for="useModifier">Include Media Modifier?</label>
-        <input type="checkbox" id="useModifier">
+        <input type="checkbox" id="useModifier" aria-label="Include Media Modifier">
       </div>
       
       <div class="form-group modifier-group" style="display: none;">
         <label for="modifierType">Media Type:</label>
-        <select id="modifierType" class="tag-select">
+        <select id="modifierType" class="tag-select" aria-label="Media Type">
           
           <option value="WR">WR (Writing)</option>
           
@@ -140,7 +141,8 @@
         </select>
       </div>
       
-      <button id="generateTag">Generate Tag</button>
+      <button id="generateTag" aria-label="Generate AIUL tag graphic">Generate Tag</button>
+      <div id="formFeedback" aria-live="polite" aria-atomic="true" class="sr-only"></div>
     </div>
     
     <div class="generator-preview">
