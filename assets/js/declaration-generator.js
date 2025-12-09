@@ -115,9 +115,23 @@ document.addEventListener('DOMContentLoaded', function() {
     downloadPNG.addEventListener('click', downloadAsPNG);
     downloadSVG.addEventListener('click', downloadAsSVG);
 
+    // Accessibility: Character count announcements
+    notesInput.addEventListener('input', function() {
+        const countElement = document.getElementById('notesCount');
+        const remaining = 75 - this.value.length;
+        countElement.textContent = `${this.value.length} / 75 characters`;
+        if (remaining <= 10 && remaining > 0) {
+            countElement.textContent += ` (${remaining} remaining)`;
+        } else if (remaining === 0) {
+            countElement.textContent += ' (limit reached)';
+        }
+    });
+
     // Functions
     function checkFormValidity() {
-        addEntryBtn.disabled = !(modifierSelect.value && usageSelect.value);
+        const isValid = modifierSelect.value && usageSelect.value;
+        addEntryBtn.disabled = !isValid;
+        addEntryBtn.setAttribute('aria-disabled', !isValid);
     }
 
     function addEntry() {

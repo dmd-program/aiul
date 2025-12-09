@@ -31,7 +31,7 @@ custom_js:
       <div class="control-panel" style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
         <div class="form-group">
           <label for="modifierType">Domain / Media:</label>
-          <select id="modifierType" class="tag-select">
+          <select id="modifierType" class="tag-select" aria-required="true" aria-label="Domain / Media (required)">
             <option value="" disabled selected>Select a domain...</option>
             {% for modifier in site.modifiers %}
             <option value="{{ modifier.full_name }}">{{ modifier.title }} ({{ modifier.full_name }})</option>
@@ -41,7 +41,7 @@ custom_js:
 
         <div class="form-group">
           <label for="usageLevel">Usage Level:</label>
-          <select id="usageLevel" class="tag-select">
+          <select id="usageLevel" class="tag-select" aria-required="true" aria-label="Usage Level (required)">
             <option value="" disabled selected>Select usage level...</option>
             {% for level in site.data.usage_levels %}
             <option value="{{ level.id }}">{{ level.name }}</option>
@@ -52,16 +52,18 @@ custom_js:
         
         <div class="form-group">
           <label for="toolUsed">AI Tool(s) (Optional):</label>
-          <input type="text" id="toolUsed" class="text-input" placeholder="e.g., ChatGPT, Midjourney" maxlength="60">
-          <small style="color: #666; font-size: 0.8em;">Max 60 characters</small>
+          <input type="text" id="toolUsed" class="text-input" placeholder="e.g., ChatGPT, Midjourney" maxlength="60" aria-describedby="toolUsedHint">
+          <small id="toolUsedHint" style="color: #666; font-size: 0.8em;">Max 60 characters</small>
         </div>
 
         <div class="form-group">
           <label for="usageNotes">Details (Optional):</label>
-          <textarea id="usageNotes" class="text-input" rows="2" placeholder="Briefly describe what you did..." maxlength="75"></textarea>
-          <small style="color: #666; font-size: 0.8em;">Max 75 characters</small>
+          <textarea id="usageNotes" class="text-input" rows="2" placeholder="Briefly describe what you did..." maxlength="75" aria-describedby="notesHint notesCount"></textarea>
+          <small id="notesHint" style="color: #666; font-size: 0.8em;">Max 75 characters</small>
+          <div id="notesCount" aria-live="polite" aria-atomic="true" style="color: #666; font-size: 0.8em; margin-top: 2px;">0 / 75 characters</div>
         </div>
-        
+        <button id="addEntryBtn" class="primary-button" disabled aria-disabled="true">+ Add Entry</button>
+        <div id="formFeedback" aria-live="polite" aria-atomic="true" class="sr-only"></div>
         <button id="addEntryBtn" class="primary-button" disabled>+ Add Entry</button>
       </div>
 

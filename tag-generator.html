@@ -16,7 +16,7 @@ custom_js:
       
       <div class="form-group">
         <label for="tagType">AIUL License Level:</label>
-        <select id="tagType" class="tag-select">
+        <select id="tagType" class="tag-select" aria-required="true" aria-label="AIUL License Level (required)">
           {% for license in site.licenses %}
           <option value="{{ license.title | remove: 'AIUL-' }}">{{ license.title }} ({{ license.full_name }})</option>
           {% endfor %}
@@ -32,12 +32,12 @@ custom_js:
       
       <div class="form-group">
         <label for="useModifier">Include Media Modifier?</label>
-        <input type="checkbox" id="useModifier">
+        <input type="checkbox" id="useModifier" aria-label="Include Media Modifier">
       </div>
       
       <div class="form-group modifier-group" style="display: none;">
         <label for="modifierType">Media Type:</label>
-        <select id="modifierType" class="tag-select">
+        <select id="modifierType" class="tag-select" aria-label="Media Type">
           {% for modifier in site.modifiers %}
           <option value="{{ modifier.title }}">{{ modifier.title }} ({{ modifier.full_name }})</option>
           {% endfor %}
@@ -51,7 +51,8 @@ custom_js:
         </select>
       </div>
       
-      <button id="generateTag">Generate Tag</button>
+      <button id="generateTag" aria-label="Generate AIUL tag graphic">Generate Tag</button>
+      <div id="formFeedback" aria-live="polite" aria-atomic="true" class="sr-only"></div>
     </div>
     
     <div class="generator-preview">

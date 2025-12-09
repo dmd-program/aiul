@@ -23,6 +23,26 @@ $psu-white: #FFFFFF;
   border-width: 0;
 }
 
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: $psu-blue;
+  color: $psu-white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  font-weight: 500;
+
+  &:focus {
+    top: 0;
+    outline: 2px solid $psu-yellow;
+    outline-offset: -4px;
+  }
+}
+
 /* Base styling */
 body {
   font-family: 'Roboto', sans-serif;
@@ -147,6 +167,11 @@ nav {
       background-color: $psu-medium-blue;
       color: $psu-yellow;
     }
+
+    &:focus {
+      outline: 2px solid $psu-yellow;
+      outline-offset: 2px;
+    }
     
     &.active {
       background-color: $psu-medium-blue;
@@ -212,6 +237,11 @@ nav {
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
+    &:focus {
+      outline: 2px solid $psu-blue;
+      outline-offset: 2px;
+    }
   }
 }
 .bold {
@@ -271,6 +301,11 @@ nav {
     &:hover {
       color: $psu-medium-blue;
       border-bottom-color: $psu-yellow;
+    }
+
+    &:focus {
+      outline: 2px solid $psu-yellow;
+      outline-offset: 2px;
     }
   }
 }
@@ -347,6 +382,33 @@ form {
       box-shadow: 0 0 0 3px rgba($psu-blue, 0.2);
     }
   }
+
+  /* Text inputs and textareas */
+  input[type="text"],
+  textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid $psu-light-blue;
+    border-radius: 4px;
+    background-color: $psu-white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $psu-blue;
+      box-shadow: 0 0 0 3px rgba($psu-blue, 0.2);
+    }
+  }
+
+  /* Checkbox and radio focus */
+  input[type="checkbox"],
+  input[type="radio"] {
+    &:focus {
+      outline: 2px solid $psu-yellow;
+      outline-offset: 2px;
+    }
+  }
 }
 
 button {
@@ -371,6 +433,16 @@ button {
   
   &:active {
     transform: translateY(0);
+  }
+
+  &:focus {
+    outline: 2px solid $psu-yellow;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }
 
@@ -442,8 +514,12 @@ button {
     
     button#downloadStatement {
       background-color: $psu-yellow;
-      color: $psu-blue;
+      color: #000000;
       min-width: 200px;
+      
+      &:hover {
+        background-color: #E6BC00;
+      }
     }
     
     .download-message {
