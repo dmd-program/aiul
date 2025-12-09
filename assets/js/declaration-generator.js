@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // State
     let entries = [];
-    let currentFormat = 'html';
 
     // DOM Elements
     const modifierSelect = document.getElementById('modifierType');
@@ -13,20 +12,78 @@ document.addEventListener('DOMContentLoaded', function() {
     const entriesList = document.getElementById('entriesList');
     const previewSection = document.getElementById('previewSection');
     const previewBox = document.getElementById('declarationPreview');
-    const codeOutput = document.getElementById('codeOutput');
-    const copyBtn = document.getElementById('copyCode');
-    const tabBtns = document.querySelectorAll('.tab-btn');
     const downloadPNG = document.getElementById('downloadPNG');
     const downloadSVG = document.getElementById('downloadSVG');
     const embedCodeSection = document.getElementById('embedCodeSection');
     const embedCodeDisplay = document.getElementById('embedCode');
     const copyEmbedCodeButton = document.getElementById('copyEmbedCode');
+    const htmlPreviewSection = document.getElementById('htmlPreviewSection');
+    const embedPreview = document.getElementById('embedPreview');
+    const embedCodeDisplayPreview = document.getElementById('embedCodeDisplay');
+    const copyEmbedCodeBtnPreview = document.getElementById('copyEmbedCodeBtn');
 
     // Data
     const usageData = window.usageLevels.reduce((acc, level) => {
         acc[level.id] = level;
         return acc;
     }, {});
+
+    // Map usage level IDs to AIUL URLs
+    const usageLevelUrls = {
+        'ideation': '/aiul/usage-levels/ideation/',
+        'assistance': '/aiul/usage-levels/assistance/',
+        'generation': '/aiul/usage-levels/generation/',
+        'refinement': '/aiul/usage-levels/refinement/'
+    };
+
+    // Get modifier URLs from the injected window data (auto-populated from Jekyll)
+    const aiulModifierUrls = window.aiulModifierUrls || {};
+    
+    // Create a mapping of full names to short codes for display
+    const modifierNameToCode = {
+        '3D': '3D',
+        'Audio': 'AU',
+        'Code': 'CO',
+        'Image': 'IM',
+        'Mixed Media': 'MX',
+        'Traditional Media': 'TR',
+        'Video': 'VD',
+        'Writing': 'WR'
+    };
+    
+    // Helper function to get modifier short code from full name
+    function getModifierCode(fullName) {
+        return modifierNameToCode[fullName] || fullName.substring(0, 2).toUpperCase();
+    }
+
+    // Load saved declaration entries from localStorage
+    function loadSavedDeclaration() {
+        const savedEntries = localStorage.getItem('AIULDeclarationEntries');
+        if (savedEntries) {
+            try {
+                entries = JSON.parse(savedEntries);
+                console.log('Loaded saved declaration entries:', entries);
+                renderEntriesList();
+                updateEmbedCode();
+                if (entries.length > 0) {
+                    embedCodeSection.style.display = 'block';
+                    htmlPreviewSection.style.display = 'block';
+                }
+                renderGraphic();
+            } catch (error) {
+                console.error('Error loading saved declaration:', error);
+            }
+        }
+    }
+
+    // Save declaration entries to localStorage
+    function saveDeclaration() {
+        localStorage.setItem('AIULDeclarationEntries', JSON.stringify(entries));
+        console.log('Declaration saved to localStorage');
+    }
+
+    // Load saved declaration on page load
+    loadSavedDeclaration();
 
     // Event Listeners
     usageSelect.addEventListener('change', function() {
@@ -39,28 +96,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addEntryBtn.addEventListener('click', addEntry);
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentFormat = this.dataset.tab;
-            updateCodeOutput();
-        });
-    });
-
-    copyBtn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeOutput.textContent).then(() => {
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copied!';
-            setTimeout(() => { copyBtn.textContent = originalText; }, 2000);
-        });
-    });
-
     copyEmbedCodeButton.addEventListener('click', function() {
         navigator.clipboard.writeText(embedCodeDisplay.textContent).then(() => {
             const originalText = copyEmbedCodeButton.textContent;
             copyEmbedCodeButton.textContent = 'Copied!';
             setTimeout(() => { copyEmbedCodeButton.textContent = originalText; }, 2000);
+        });
+    });
+
+    copyEmbedCodeBtnPreview.addEventListener('click', function() {
+        navigator.clipboard.writeText(embedCodeDisplayPreview.textContent).then(() => {
+            const originalText = copyEmbedCodeBtnPreview.textContent;
+            copyEmbedCodeBtnPreview.textContent = 'Copied!';
+            setTimeout(() => { copyEmbedCodeBtnPreview.textContent = originalText; }, 2000);
         });
     });
 
@@ -75,10 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function addEntry() {
         const entry = {
             id: Date.now(),
-            modifier: modifierSelect.value,
+            modifier: modifierSelect.value,  // Now this will be the full name (e.g., "Image")
+            modifierUrl: window.aiulModifierUrls ? window.aiulModifierUrls[modifierSelect.value] : null,
             usageId: usageSelect.value,
             usageName: usageData[usageSelect.value].name,
             usageIcon: usageData[usageSelect.value].icon,
+            usageUrl: usageLevelUrls[usageSelect.value] || null,
             tools: toolInput.value,
             notes: notesInput.value
         };
@@ -94,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
         checkFormValidity();
 
         renderEntriesList();
-        updateCodeOutput();
         updateEmbedCode();
+        saveDeclaration();
         
         embedCodeSection.style.display = 'block';
         
@@ -106,11 +156,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function removeEntry(id) {
         entries = entries.filter(e => e.id !== id);
         renderEntriesList();
-        updateCodeOutput();
         updateEmbedCode();
+        saveDeclaration();
 
         if (entries.length === 0) {
             embedCodeSection.style.display = 'none';
+            htmlPreviewSection.style.display = 'none';
         }
         
         // Auto-update graphic (handles empty state internally)
@@ -126,17 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (direction === 'down' && index < entries.length - 1) {
             [entries[index], entries[index+1]] = [entries[index+1], entries[index]];
         }
-        
         renderEntriesList();
-        updateCodeOutput();
         updateEmbedCode();
+        saveDeclaration();
         
         // Auto-update graphic
         renderGraphic();
     }
 
     function renderEntriesList() {
-        entriesList.innerHTML = '';
         if (entries.length === 0) {
             entriesList.innerHTML = '<div class="empty-state">No entries added yet.</div>';
             return;
@@ -145,9 +194,20 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach((entry, index) => {
             const div = document.createElement('div');
             div.className = 'entry-item';
+            
+            // Create modifier link
+            const modifierLink = entry.modifierUrl 
+                ? `<a href="${entry.modifierUrl}" style="text-decoration: none; color: inherit; font-weight: bold;">${entry.modifier}</a>`
+                : `<strong>${entry.modifier}</strong>`;
+            
+            // Create usage link
+            const usageLink = entry.usageUrl
+                ? `<a href="${entry.usageUrl}" style="text-decoration: none; color: inherit;">${entry.usageName}</a>`
+                : `${entry.usageName}`;
+            
             div.innerHTML = `
                 <div class="entry-info">
-                    <strong>${entry.modifier}</strong> - ${entry.usageName}
+                    ${modifierLink} - ${usageLink}
                 </div>
                 <div class="entry-controls">
                     <button class="icon-btn" onclick="window.moveEntry(${entry.id}, 'up')" ${index === 0 ? 'disabled' : ''}>↑</button>
@@ -163,64 +223,67 @@ document.addEventListener('DOMContentLoaded', function() {
     window.removeEntry = removeEntry;
     window.moveEntry = moveEntry;
 
-    function updateCodeOutput() {
-        if (entries.length === 0) {
-            codeOutput.textContent = '';
-            return;
-        }
-
-        let output = '';
-        if (currentFormat === 'html') {
-            output = `<!-- AI Usage Declaration -->\n<div class="aiul-declaration">\n  <h3>AI Usage Declaration</h3>\n  <ul style="list-style: none; padding: 0;">\n`;
-            entries.forEach(e => {
-                output += `    <li style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-        <span style="background: #000; color: #fff; padding: 2px 8px; font-weight: bold;">${e.modifier}</span>
-        <span>→</span>
-        <strong>${e.usageName}</strong>
-      </div>
-      ${e.tools ? `<div style="font-size: 0.9em;">Tools: ${e.tools}</div>` : ''}
-      ${e.notes ? `<div style="font-size: 0.9em; color: #555;">${e.notes}</div>` : ''}
-    </li>\n`;
-            });
-            output += `  </ul>\n</div>`;
-        } else if (currentFormat === 'markdown') {
-            output = `### AI Usage Declaration\n\n`;
-            entries.forEach(e => {
-                output += `*   **${e.modifier}** → **${e.usageName}**\n`;
-                if (e.tools) output += `    *   Tools: ${e.tools}\n`;
-                if (e.notes) output += `    *   Notes: ${e.notes}\n`;
-            });
-        } else {
-            output = `AI USAGE DECLARATION\n====================\n\n`;
-            entries.forEach(e => {
-                output += `${e.modifier} -> ${e.usageName}\n`;
-                if (e.tools) output += `  Tools: ${e.tools}\n`;
-                if (e.notes) output += `  Notes: ${e.notes}\n`;
-                output += `\n`;
-            });
-        }
-        codeOutput.textContent = output;
-    }
-
     function updateEmbedCode() {
-        let html = `<div style="border: 2px solid #000; padding: 20px; font-family: sans-serif; max-width: 500px; background: #fff;">
-  <div style="font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 15px;">AI USAGE DECLARATION</div>`;
+        // Determine baseurl dynamically
+        const currentUrl = window.location.href;
+        const urlParts = currentUrl.split('/');
+        const origin = window.location.origin;
+        let basePath = '';
+        const aiulIndex = urlParts.findIndex(part => part === 'aiul' || part.includes('aiul'));
+        if (aiulIndex !== -1) {
+            basePath = urlParts.slice(0, aiulIndex + 1).join('/').replace(origin, '');
+        }
+        
+        let html = `<div style="border: 4px solid #000; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; background: #fff;">
+  <div style="font-weight: 700; font-size: 24px; letter-spacing: 1px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 15px;">AI USAGE DECLARATION</div>`;
         
         entries.forEach(e => {
+            // Get modifier short code for display
+            const modifierCode = getModifierCode(e.modifier);
+            
+            // Use the stored modifierUrl from entry, or construct it
+            const modifierUrl = e.modifierUrl 
+                ? `${origin}${e.modifierUrl}1.0.0/`
+                : `${origin}${basePath}/modifiers/${e.modifier.toLowerCase().replace(/\s+/g, '-')}/1.0.0/`;
+            
+            // Use the stored usageUrl from entry
+            const usageUrl = e.usageUrl
+                ? `${origin}${e.usageUrl}`
+                : `${origin}${basePath}/usage-levels/${e.usageId}/1.0.0/`;
+            
+            // Get icon SVG
+            const iconPath = getIconPath(e.usageIcon);
+            
             html += `
-  <div style="margin-bottom: 15px;">
-    <div style="display: flex; align-items: center; margin-bottom: 5px;">
-      <span style="background: #000; color: #fff; padding: 4px 8px; font-weight: bold; margin-right: 10px;">${e.modifier}</span>
-      <span style="margin-right: 10px;">→</span>
-      <span style="font-weight: bold;">${e.usageName}</span>
+  <div style="margin-bottom: 30px;">
+    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+      <a href="${modifierUrl}" style="background: #000; color: #fff; padding: 6px 12px; font-weight: 700; font-size: 14px; text-transform: uppercase; margin-right: 10px; text-decoration: none; display: inline-block;" title="Learn more about ${modifierCode} modifier">${modifierCode}</a>
+      <span style="margin-right: 10px; font-weight: 700; font-size: 20px;">→</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px; vertical-align: middle;">
+        <defs><style>.icon-path { fill: none; stroke: black; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }</style></defs>
+        ${iconPath}
+      </svg>
+      <a href="${usageUrl}" style="font-weight: 700; font-size: 18px; color: #000; text-decoration: none;" title="Learn more about ${e.usageName}">${e.usageName}</a>
     </div>
-    ${e.tools || e.notes ? `<div style="font-size: 14px; color: #333;">${e.tools ? 'Tools: ' + e.tools : ''}${e.tools && e.notes ? ' | ' : ''}${e.notes || ''}</div>` : ''}
+    ${e.tools || e.notes ? `<div style="font-size: 14px; color: #333; margin-left: 0;">${e.tools ? '<span><span style="font-weight: 700;">Tools:</span> ' + e.tools + '</span>' : ''}${e.tools && e.notes ? '<br />' : ''}${e.notes ? '<span>' + e.notes + '</span>' : ''}</div>` : ''}
   </div>`;
         });
         
         html += `</div>`;
+        
+        // Update the legacy embed code display
         embedCodeDisplay.textContent = html;
+        
+        // Update the new preview section
+        embedCodeDisplayPreview.textContent = html;
+        embedPreview.innerHTML = html;
+        
+        // Show/hide the HTML preview section based on whether there are entries
+        if (entries.length > 0) {
+            htmlPreviewSection.style.display = 'block';
+        } else {
+            htmlPreviewSection.style.display = 'none';
+        }
     }
 
     function renderGraphic() {
@@ -276,11 +339,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let y = 90;
         entries.forEach(e => {
+            // Get modifier short code for display
+            const modifierCode = getModifierCode(e.modifier);
+            
             // Modifier Badge
-            const modWidth = (e.modifier.length * 9) + 24;
+            const modWidth = (modifierCode.length * 9) + 24;
             
             svg += `<rect x="${padding}" y="${y-18}" width="${modWidth}" height="26" class="mod-bg"/>`;
-            svg += `<text x="${padding + 12}" y="${y}" class="mod-text">${e.modifier}</text>`;
+            svg += `<text x="${padding + 12}" y="${y}" class="mod-text">${modifierCode}</text>`;
             
             // Arrow
             svg += `<text x="${padding + modWidth + 10}" y="${y}" class="arrow">→</text>`;

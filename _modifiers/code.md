@@ -6,7 +6,7 @@ order: 8
 description: "For assignments involving programming or software development"
 example: "Software development, web applications, algorithms, data science scripts, computational art"
 permalink: /modifiers/code.html
-
+redirect_to: /modifiers/code/
 ---
 
 ## CO (Code)

@@ -11,6 +11,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Added hooks to run Node.js script for generating license images
 hooks:
@@ -54,3 +55,5 @@ collections:
     output: true
     sort_by: order
     permalink: /modifiers/:name:output_ext
+  aiul:
+    output: true

@@ -1,0 +1,166 @@
+# AIUL - AI Usage & Licensing System
+# Versioned URL scheme for persistent linking and archival
+
+licenses:
+  latest: 1.0.0
+  items:
+    na:
+      title: "AIUL-NA"
+      full_name: "Not Allowed"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/na/1.0.0/
+    wa:
+      title: "AIUL-WA"
+      full_name: "With Approval"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/wa/1.0.0/
+    cd:
+      title: "AIUL-CD"
+      full_name: "Conceptual Development"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/cd/1.0.0/
+    tc:
+      title: "AIUL-TC"
+      full_name: "Transformative Collaboration"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/tc/1.0.0/
+    dp:
+      title: "AIUL-DP"
+      full_name: "Directed Production"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/dp/1.0.0/
+    iu:
+      title: "AIUL-IU"
+      full_name: "Integrated Usage"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/licenses/iu/1.0.0/
+
+declarations:
+  latest: 1.0.0
+  versions:
+    1.0.0:
+      released: 2025-12-09
+      url: /aiul/declarations/1.0.0/
+      description: "Initial release of AI Usage Declaration system"
+
+modifiers:
+  latest: 1.0.0
+  items:
+    3d:
+      title: "3D Design"
+      full_name: "3-Dimensional Design"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/3d/1.0.0/
+    audio:
+      title: "Audio"
+      full_name: "Audio"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/audio/1.0.0/
+    code:
+      title: "Code"
+      full_name: "Code"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/code/1.0.0/
+    image:
+      title: "Image"
+      full_name: "Image"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/image/1.0.0/
+    mixed-media:
+      title: "Mixed Media"
+      full_name: "Mixed Media"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/mixed-media/1.0.0/
+    traditional-media:
+      title: "Traditional Media"
+      full_name: "Traditional Media"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/traditional-media/1.0.0/
+    video:
+      title: "Video"
+      full_name: "Video"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/video/1.0.0/
+    writing:
+      title: "Writing"
+      full_name: "Writing"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/modifiers/writing/1.0.0/
+
+usage_levels:
+  latest: 1.0.0
+  items:
+    ideation:
+      name: "Ideation"
+      icon: "lightbulb"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/usage-levels/ideation/1.0.0/
+    assistance:
+      name: "Assistance"
+      icon: "wrench"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/usage-levels/assistance/1.0.0/
+    generation:
+      name: "Generation"
+      icon: "sparkles"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/usage-levels/generation/1.0.0/
+    refinement:
+      name: "Refinement"
+      icon: "robot"
+      latest: 1.0.0
+      versions:
+        1.0.0:
+          released: 2025-12-09
+          url: /aiul/usage-levels/refinement/1.0.0/

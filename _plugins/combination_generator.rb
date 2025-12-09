@@ -52,7 +52,7 @@ module Jekyll
             # Log the combination being created
             Jekyll.logger.info("CombinationGenerator:", "Generating combination: #{license_code}-#{modifier_code}")
             
-            combination_page = CombinationPage.new(site, site.source, 'combinations', license, modifier)
+            combination_page = CombinationPage.new(site, site.source, 'combinations', license, modifier, true)
             
             # Store the combination page data for later reference
             combinations[license_code][modifier_code] = {
@@ -111,7 +111,7 @@ module Jekyll
 
   # Class representing a combination page
   class CombinationPage < Page
-    def initialize(site, base, dir, license, modifier)
+    def initialize(site, base, dir, license, modifier, use_versioned_layout = false)
       @site = site
       @base = base
       @dir = dir
@@ -138,10 +138,14 @@ module Jekyll
       
       modifier_name = modifier.data['full_name'] || modifier_code
       modifier_description = modifier.data['description'] || "No description available"
+      modifier_example = modifier.data['example_use_cases'] || "See the full modifier page for examples."
+      
+      # Choose layout based on flag
+      layout = use_versioned_layout ? 'combination-versioned' : 'combination'
       
       # Set up the front matter data with nil checks
       @data = {
-        'layout' => 'combination',
+        'layout' => layout,
         'title' => "AIUL-#{license_code}-#{modifier_code}",
         'license_code' => "AIUL-#{license_code}",
         'license_name' => license_name,
@@ -152,6 +156,7 @@ module Jekyll
         'modifier_code' => modifier_code,
         'modifier_name' => modifier_name,
         'modifier_description' => modifier_description,
+        'modifier_example' => modifier_example,
         'modifier_url' => modifier.data['permalink'] || modifier.url,
         'combination_image_path' => "/assets/images/licenses/aiul-#{license_code.downcase}-#{modifier_code.downcase}.png",
         'permalink' => "/combinations/#{license_code.downcase}-#{modifier_code.downcase}.html"

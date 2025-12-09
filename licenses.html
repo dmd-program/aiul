@@ -21,7 +21,7 @@ title: AIUL Licenses
     <tbody>
       {% for license in site.licenses %}
       <tr>
-        <td><strong><a href="{{ license.url | relative_url }}">{{ license.title }}</a></strong> ({{ license.full_name }})</td>
+        <td><strong><a href="{{ 'licenses/' | append: license.slug | append: '/1.0.0/' | relative_url }}">{{ license.title }}</a></strong> ({{ license.full_name }})</td>
         <td>{{ license.description }}</td>
         <td>{{ license.example }}</td>
       </tr>
@@ -44,7 +44,7 @@ title: AIUL Licenses
     <tbody>
       {% for modifier in site.modifiers %}
       <tr>
-        <td><strong><a href="{{ modifier.permalink | default: modifier.url | relative_url }}">-{{ modifier.title }}</a></strong> ({{ modifier.full_name }})</td>
+        <td><strong><a href="{{ 'modifiers/' | append: modifier.slug | append: '/1.0.0/' | relative_url }}">-{{ modifier.title }}</a></strong> ({{ modifier.full_name }})</td>
         <td>{{ modifier.description }}</td>
         <td>{{ modifier.example }}</td>
       </tr>
@@ -52,7 +52,7 @@ title: AIUL Licenses
     </tbody>
   </table>
 
-  <p>If an assignment involves multiple media types but focuses primarily on one, you can use the primary media suffix. For more complex assignments, the <strong><a href="{% assign mx_modifier = site.modifiers | where: 'title', 'MX' | first %}{{ mx_modifier.permalink | default: mx_modifier.url | relative_url }}">-MX</a></strong> suffix is appropriate.</p>
+  <p>If an assignment involves multiple media types but focuses primarily on one, you can use the primary media suffix. For more complex assignments, the <strong><a href="{{ 'modifiers/mixed-media/1.0.0/' | relative_url }}">-MX</a></strong> suffix is appropriate.</p>
 
   <h3>Examples of Combined Tags</h3>
   
@@ -63,11 +63,11 @@ title: AIUL Licenses
     {% assign dp_modifier = site.modifiers | where: "title", "VD" | first %}
     {% assign iu_modifier = site.modifiers | where: "title", "MX" | first %}
     
-    <li><strong><a href="{{ '/combinations/na-wr.html' | relative_url }}">AIUL-NA-WR</a></strong>: A writing assignment where no AI text generation is permitted.</li>
-    <li><strong><a href="{{ '/combinations/cd-im.html' | relative_url }}">AIUL-CD-IM</a></strong>: An image creation assignment where AI can be used for inspiration or research but the final image must be created without AI generation.</li>
-    <li><strong><a href="{{ '/combinations/tc-au.html' | relative_url }}">AIUL-TC-AU</a></strong>: An audio production assignment where AI tools can be used collaboratively, but with significant student input and direction.</li>
-    <li><strong><a href="{{ '/combinations/dp-vd.html' | relative_url }}">AIUL-DP-VD</a></strong>: A video project where AI-assisted creation is permitted with student direction and editing.</li>
-    <li><strong><a href="{{ '/combinations/iu-mx.html' | relative_url }}">AIUL-IU-MX</a></strong>: A mixed-media project that requires the integration of AI tools as a core learning objective.</li>
+    <li><strong><a href="{{ '/combinations/na-wr.html?license=1.0.0&modifier=1.0.0' | relative_url }}">AIUL-NA-WR</a></strong>: A writing assignment where no AI text generation is permitted.</li>
+    <li><strong><a href="{{ '/combinations/cd-im.html?license=1.0.0&modifier=1.0.0' | relative_url }}">AIUL-CD-IM</a></strong>: An image creation assignment where AI can be used for inspiration or research but the final image must be created without AI generation.</li>
+    <li><strong><a href="{{ '/combinations/tc-au.html?license=1.0.0&modifier=1.0.0' | relative_url }}">AIUL-TC-AU</a></strong>: An audio production assignment where AI tools can be used collaboratively, but with significant student input and direction.</li>
+    <li><strong><a href="{{ '/combinations/dp-vd.html?license=1.0.0&modifier=1.0.0' | relative_url }}">AIUL-DP-VD</a></strong>: A video project where AI-assisted creation is permitted with student direction and editing.</li>
+    <li><strong><a href="{{ '/combinations/iu-mx.html?license=1.0.0&modifier=1.0.0' | relative_url }}">AIUL-IU-MX</a></strong>: A mixed-media project that requires the integration of AI tools as a core learning objective.</li>
   </ul>
   
   <h3>Implementation Resources</h3>

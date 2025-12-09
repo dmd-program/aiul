@@ -1,0 +1,130 @@
+---
+layout: default
+---
+
+<div class="page-content license-detail combination-detail">
+  <div class="combination-header">
+    <div class="license-tag">
+      <div class="tag-container tag-size-medium">
+        <div class="tag-main">
+          <span class="tag-text">{{ page.title }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="license-info">
+      <h1>{{ page.title }}</h1>
+      <p class="license-description"><span id="license-name">{{ page.license_name }}</span> for <span id="modifier-name">{{ page.modifier_name }}</span></p>
+      <p class="version-info" id="version-info" style="font-size: 0.9em; color: #666; margin-top: 0.5rem;"></p>
+    </div>
+  </div>
+
+  {% if page.combination_image_path %}
+  <div class="combination-image">
+    <img src="{{ page.combination_image_path | relative_url }}" alt="{{ page.title }}" id="combination-image" />
+  </div>
+  {% endif %}
+  
+  <div class="license-content combination-content">
+    <h2>About This License Combination</h2>
+    <p>This is a combination of the <a href="{{ page.license_url | relative_url }}" id="license-link">{{ page.license_code }}</a> license (<span id="license-full-name">{{ page.license_name }}</span>) 
+    and the <a href="{{ page.modifier_url | relative_url }}" id="modifier-link">{{ page.modifier_code }}</a> modifier (<span id="modifier-full-name">{{ page.modifier_name }}</span>).</p>
+    
+    <div class="version-selector" style="margin: 2rem 0; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+      <h3>Version Selection</h3>
+      <p>View specific versions of this combination:</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+        <div>
+          <label for="license-version">License Version:</label>
+          <select id="license-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+        <div>
+          <label for="modifier-version">Modifier Version:</label>
+          <select id="modifier-version" style="width: 100%; padding: 0.5rem; margin-top: 0.25rem;">
+            <option value="1.0.0" selected>1.0.0 (latest)</option>
+          </select>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9em; color: #666;">
+        URL for this version: <code id="version-url" style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px;">{{ page.url }}</code>
+      </p>
+    </div>
+    
+    <div class="combination-details">
+      <div class="license-details">
+        <h3>License: <span id="license-code-header">{{ page.license_code }}</span> (<span id="license-name-header">{{ page.license_name }}</span>)</h3>
+        <p><strong>Description:</strong> <span id="license-desc">{{ page.license_description }}</span></p>
+        <p><strong>What it means:</strong> <span id="license-syllabus">{{ page.license_syllabus }}</span></p>
+        
+        <div class="when-to-use">
+          <h4>When to Use</h4>
+          <ul id="license-when-list">
+            {% for item in page.license_when_to_use %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <p><a href="{{ page.license_url | relative_url }}" class="button-link" id="license-full-link">View Full {{ page.license_code }} License</a></p>
+      </div>
+      
+      <div class="modifier-details">
+        <h3>Modifier: <span id="modifier-code-header">{{ page.modifier_code }}</span> (<span id="modifier-name-header">{{ page.modifier_name }}</span>)</h3>
+        <p><strong>Description:</strong> <span id="modifier-desc">{{ page.modifier_description }}</span></p>
+        <p><strong>Example Use Cases:</strong> <span id="modifier-example">{{ page.modifier_example }}</span></p>
+        
+        <p><a href="{{ page.modifier_url | relative_url }}" class="button-link" id="modifier-full-link">View Full {{ page.modifier_code }} Modifier</a></p>
+      </div>
+    </div>
+
+    {{ content }}
+  </div>
+</div>
+
+<script>
+// Handle version query parameters
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const licenseVersion = urlParams.get('license') || '1.0.0';
+  const modifierVersion = urlParams.get('modifier') || '1.0.0';
+  const baseUrl = window.location.pathname;
+  
+  // Set version selectors
+  document.getElementById('license-version').value = licenseVersion;
+  document.getElementById('modifier-version').value = modifierVersion;
+  
+  // Update version URL display
+  function updateVersionUrl() {
+    const lv = document.getElementById('license-version').value;
+    const mv = document.getElementById('modifier-version').value;
+    const newUrl = baseUrl + '?license=' + lv + '&modifier=' + mv;
+    document.getElementById('version-url').textContent = window.location.origin + newUrl;
+  }
+  
+  // Add change listeners
+  document.getElementById('license-version').addEventListener('change', function() {
+    const lv = this.value;
+    const mv = document.getElementById('modifier-version').value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  document.getElementById('modifier-version').addEventListener('change', function() {
+    const lv = document.getElementById('license-version').value;
+    const mv = this.value;
+    window.location.href = baseUrl + '?license=' + lv + '&modifier=' + mv;
+  });
+  
+  // Show version info if non-default
+  if (licenseVersion !== '1.0.0' || modifierVersion !== '1.0.0') {
+    document.getElementById('version-info').textContent = 
+      'Viewing License v' + licenseVersion + ' + Modifier v' + modifierVersion;
+  }
+  
+  updateVersionUrl();
+  
+  // Future: Load version-specific content via AJAX
+  // For now, all versions use the same content (v1.0.0)
+})();
+</script>

@@ -6,7 +6,7 @@ order: 3
 description: "For assignments involving moving images"
 example: "Films, animations, motion graphics, video essays, promotional videos"
 permalink: /modifiers/video.html
-
+redirect_to: /modifiers/video/
 ---
 
 ## VD (Video)

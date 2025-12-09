@@ -6,7 +6,7 @@ order: 2
 description: "For assignments involving static visual content"
 example: "Photography, digital illustration, graphic design, posters, data visualization"
 permalink: /modifiers/image.html
-
+redirect_to: /modifiers/image/
 ---
 
 ## IM (Image)

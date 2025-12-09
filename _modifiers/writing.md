@@ -6,6 +6,7 @@ order: 1
 description: "For assignments involving substantial written content"
 example: "Essays, research papers, creative writing, reports, scripts, poetry"
 permalink: /modifiers/writing.html
+redirect_to: /modifiers/writing/
 ---
 
 ## WR (Writing)

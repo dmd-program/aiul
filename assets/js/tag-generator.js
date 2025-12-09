@@ -49,9 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get elements
     const tagTypeSelect = document.getElementById('tagType');
+    const licenseVersionSelect = document.getElementById('licenseVersion');
     const useModifierCheckbox = document.getElementById('useModifier');
     const modifierGroup = document.querySelector('.modifier-group');
     const modifierTypeSelect = document.getElementById('modifierType');
+    const modifierVersionSelect = document.getElementById('modifierVersion');
     // Size selector removed as we're standardizing on medium size
     const generateTagButton = document.getElementById('generateTag');
     const downloadPNGButton = document.getElementById('downloadPNG');
@@ -79,6 +81,44 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Initial tag type value:', tagTypeSelect.value);
     console.log('Initial select options:', Array.from(tagTypeSelect.options).map(o => o.value));
 
+    // Load saved configuration from localStorage
+    function loadSavedConfig() {
+        const savedConfig = localStorage.getItem('AIULTagConfig');
+        if (savedConfig) {
+            try {
+                const config = JSON.parse(savedConfig);
+                tagTypeSelect.value = config.tagType || tagTypeSelect.value;
+                licenseVersionSelect.value = config.licenseVersion || licenseVersionSelect.value;
+                useModifierCheckbox.checked = config.useModifier || false;
+                modifierTypeSelect.value = config.modifierType || modifierTypeSelect.value;
+                modifierVersionSelect.value = config.modifierVersion || modifierVersionSelect.value;
+                
+                // Show/hide modifier group based on saved state
+                modifierGroup.style.display = useModifierCheckbox.checked ? 'block' : 'none';
+                
+                console.log('Loaded saved tag configuration:', config);
+            } catch (error) {
+                console.error('Error loading saved config:', error);
+            }
+        }
+    }
+    
+    // Save configuration to localStorage
+    function saveConfig() {
+        const config = {
+            tagType: tagTypeSelect.value,
+            licenseVersion: licenseVersionSelect.value,
+            useModifier: useModifierCheckbox.checked,
+            modifierType: modifierTypeSelect.value,
+            modifierVersion: modifierVersionSelect.value
+        };
+        localStorage.setItem('AIULTagConfig', JSON.stringify(config));
+        console.log('Tag configuration saved:', config);
+    }
+    
+    // Load saved configuration on page load
+    loadSavedConfig();
+    
     // Initialize with default values
     updateTagText(tagTypeSelect.value);
     updateModifierText(modifierTypeSelect.value);
@@ -99,6 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Force a complete preview recreation
         updatePreview();
         
+        // Save configuration
+        saveConfig();
+        
         // Add a visual indicator that the preview has been updated
         const tagPreview = document.getElementById('tagPreview');
         tagPreview.style.transition = 'all 0.3s ease';
@@ -113,6 +156,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('License changed to:', this.value);
         updateTagText(this.value);
         updatePreview();
+        saveConfig();
+    });
+    
+    licenseVersionSelect.addEventListener('change', function() {
+        console.log('License version changed to:', this.value);
+        saveConfig();
     });
     
     modifierTypeSelect.addEventListener('change', function() {
@@ -120,6 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Force a complete preview recreation immediately
         updatePreview();
+        
+        // Save configuration
+        saveConfig();
         
         // Visual feedback for the change
         const tagPreview = document.getElementById('tagPreview');
@@ -129,6 +181,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             tagPreview.style.backgroundColor = '';
         }, 500);
+    });
+    
+    modifierVersionSelect.addEventListener('change', function() {
+        console.log('Modifier version changed to:', this.value);
+        saveConfig();
     });
     
     generateTagButton.addEventListener('click', function() {
@@ -431,13 +488,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Construct full URLs for license/combination and image
+        const licenseVersion = licenseVersionSelect.value;
+        const modifierVersion = modifierVersionSelect.value;
+        
         let licenseUrl;
         if (useModifier) {
-            // If there's a modifier, link to the combination page
-            licenseUrl = `${origin}${basePath}/combinations/${tagType.toLowerCase()}-${modifierType.toLowerCase()}.html`;
+            // If there's a modifier, link to the combination page with version parameters
+            licenseUrl = `${origin}${basePath}/combinations/${tagType.toLowerCase()}-${modifierType.toLowerCase()}.html?license=${licenseVersion}&modifier=${modifierVersion}`;
         } else {
-            // If no modifier, just link to the license page
-            licenseUrl = `${origin}${basePath}/licenses/${tagType.toLowerCase()}.html`;
+            // If no modifier, just link to the versioned license page (basePath already includes /aiul)
+            licenseUrl = `${origin}${basePath}/licenses/${tagType.toLowerCase()}/${licenseVersion}/`;
         }
         
         // Image path is always the same pattern

@@ -6,7 +6,7 @@ order: 6
 description: "For assignments involving physical art media where AI might be used for planning or reference"
 example: "Painting, drawing, sculpture, printmaking, ceramics, textiles"
 permalink: /modifiers/traditional-media.html
-
+redirect_to: /modifiers/traditional-media/
 ---
 
 ## TR (Traditional Media)

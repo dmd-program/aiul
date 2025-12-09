@@ -6,6 +6,20 @@ custom_js:
   - declaration-generator
 ---
 
+<script>
+  // Inject AIUL versioned URLs into page for JavaScript access
+  window.aiulModifierUrls = {
+    '3D': '/aiul/modifiers/3d/',
+    'Audio': '/aiul/modifiers/audio/',
+    'Code': '/aiul/modifiers/code/',
+    'Image': '/aiul/modifiers/image/',
+    'Mixed Media': '/aiul/modifiers/mixed-media/',
+    'Traditional Media': '/aiul/modifiers/traditional-media/',
+    'Video': '/aiul/modifiers/video/',
+    'Writing': '/aiul/modifiers/writing/'
+  };
+</script>
+
 <div class="page-content">
   <h2>AI Usage Declaration</h2>
   <p>Create a standardized declaration to transparently describe how AI tools were used in your work. Add multiple entries if you used AI in different ways for different parts of your project.</p>
@@ -20,7 +34,7 @@ custom_js:
           <select id="modifierType" class="tag-select">
             <option value="" disabled selected>Select a domain...</option>
             {% for modifier in site.modifiers %}
-            <option value="{{ modifier.title }}">{{ modifier.title }} ({{ modifier.full_name }})</option>
+            <option value="{{ modifier.full_name }}">{{ modifier.title }} ({{ modifier.full_name }})</option>
             {% endfor %}
           </select>
         </div>
@@ -70,23 +84,24 @@ custom_js:
         <button id="downloadSVG">Download SVG</button>
       </div>
 
-      <div class="output-options" style="margin-top: 2rem;">
-        <h4>Text / Code Export</h4>
-        <div class="tab-container">
-          <button class="tab-btn active" data-tab="html">HTML</button>
-          <button class="tab-btn" data-tab="markdown">Markdown</button>
-          <button class="tab-btn" data-tab="text">Plain Text</button>
-        </div>
+      <!-- HTML Preview Section -->
+      <div id="htmlPreviewSection" style="display: none; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ddd;">
+        <h3>HTML Embed Preview</h3>
+        <p>This is how your declaration will look when embedded as HTML:</p>
         
-        <div class="code-display">
-          <pre id="codeOutput"></pre>
-          <button id="copyCode" class="secondary-button">Copy to Clipboard</button>
+        <div class="embed-preview" style="padding: 1rem; border: 1px dashed #ccc; margin-top: 0.5rem; background: #fafafa; border-radius: 4px;">
+          <div id="embedPreview"></div>
+        </div>
+
+        <div class="embed-code-container" style="background: #f5f5f5; padding: 1.5rem; border-left: 4px solid #0f4c81; margin: 1rem 0; position: relative;">
+          <pre id="embedCodeDisplay" style="white-space: pre-wrap; word-break: break-all; font-family: monospace; margin: 0; padding: 0;"></pre>
+          <button id="copyEmbedCodeBtn" class="secondary-button" style="margin-top: 1rem;">Copy Code</button>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- HTML Embed Code section -->
+  <!-- HTML Embed Code section (keeping for backwards compatibility) -->
   <div id="embedCodeSection" style="display: none; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem;">
     <h3>HTML Embed Code</h3>
     <p>Copy and paste this code to embed the declaration image on your website:</p>
