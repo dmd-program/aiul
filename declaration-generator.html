@@ -1,0 +1,113 @@
+---
+layout: default
+title: AI Usage Declaration
+custom_js: 
+  - html2canvas
+  - declaration-generator
+---
+
+<div class="page-content">
+  <h2>AI Usage Declaration</h2>
+  <p>Create a standardized declaration to transparently describe how AI tools were used in your work. Add multiple entries if you used AI in different ways for different parts of your project.</p>
+  
+  <div class="generator-container">
+    <div class="generator-controls">
+      <h3>1. Build Your Declaration</h3>
+      
+      <div class="control-panel" style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+        <div class="form-group">
+          <label for="modifierType">Domain / Media:</label>
+          <select id="modifierType" class="tag-select">
+            <option value="" disabled selected>Select a domain...</option>
+            {% for modifier in site.modifiers %}
+            <option value="{{ modifier.title }}">{{ modifier.title }} ({{ modifier.full_name }})</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="usageLevel">Usage Level:</label>
+          <select id="usageLevel" class="tag-select">
+            <option value="" disabled selected>Select usage level...</option>
+            {% for level in site.data.usage_levels %}
+            <option value="{{ level.id }}">{{ level.name }}</option>
+            {% endfor %}
+          </select>
+          <p id="usageDescription" class="help-text" style="margin-top: 5px; font-style: italic; color: #666; min-height: 1.2em;"></p>
+        </div>
+        
+        <div class="form-group">
+          <label for="toolUsed">AI Tool(s) (Optional):</label>
+          <input type="text" id="toolUsed" class="text-input" placeholder="e.g., ChatGPT, Midjourney" maxlength="60">
+          <small style="color: #666; font-size: 0.8em;">Max 60 characters</small>
+        </div>
+
+        <div class="form-group">
+          <label for="usageNotes">Details (Optional):</label>
+          <textarea id="usageNotes" class="text-input" rows="2" placeholder="Briefly describe what you did..." maxlength="75"></textarea>
+          <small style="color: #666; font-size: 0.8em;">Max 75 characters</small>
+        </div>
+        
+        <button id="addEntryBtn" class="primary-button" disabled>+ Add Entry</button>
+      </div>
+
+      <h3>2. Manage Entries</h3>
+      <div id="entriesList" class="entries-list">
+        <div class="empty-state">No entries added yet.</div>
+      </div>
+    </div>
+    
+    <div class="generator-preview" id="previewSection">
+      <h3>Preview</h3>
+      <div id="declarationPreview" class="declaration-preview-box">
+        <div class="placeholder-text" style="color: #999; font-style: italic;">
+          Add entries to generate your declaration graphic.
+        </div>
+      </div>
+      
+      <div class="download-options">
+        <button id="downloadPNG">Download PNG</button>
+        <button id="downloadSVG">Download SVG</button>
+      </div>
+
+      <div class="output-options" style="margin-top: 2rem;">
+        <h4>Text / Code Export</h4>
+        <div class="tab-container">
+          <button class="tab-btn active" data-tab="html">HTML</button>
+          <button class="tab-btn" data-tab="markdown">Markdown</button>
+          <button class="tab-btn" data-tab="text">Plain Text</button>
+        </div>
+        
+        <div class="code-display">
+          <pre id="codeOutput"></pre>
+          <button id="copyCode" class="secondary-button">Copy to Clipboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- HTML Embed Code section -->
+  <div id="embedCodeSection" style="display: none; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem;">
+    <h3>HTML Embed Code</h3>
+    <p>Copy and paste this code to embed the declaration image on your website:</p>
+    
+    <div class="embed-code-container" style="background: #f5f5f5; padding: 1.5rem; border-left: 4px solid #0f4c81; margin: 1rem 0; position: relative;">
+      <pre id="embedCode" style="white-space: pre-wrap; word-break: break-all; font-family: monospace; margin: 0; padding: 0;"></pre>
+      <button id="copyEmbedCode" class="secondary-button" style="margin-top: 1rem;">Copy Code</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Pass Jekyll data to JS
+  window.usageLevels = {{ site.data.usage_levels | jsonify }};
+  window.modifiers = [
+    {% for modifier in site.modifiers %}
+    {
+      title: "{{ modifier.title }}",
+      full_name: "{{ modifier.full_name }}",
+      code: "{{ modifier.slug }}" // Assuming slug or similar identifier
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>

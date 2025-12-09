@@ -41,6 +41,7 @@ navigation:
   - {name: Licenses, link: '/licenses.html'}
   - {name: Guide, link: '/guide.html'}
   - {name: Tag Generator, link: '/tag-generator.html'}
+  - {name: Usage Declaration, link: '/declaration-generator.html'}
   - {name: Resources, link: '/resources.html'}
 
 # Collections

@@ -1,0 +1,23 @@
+- id: ideation
+  name: "Ideation & Brainstorming"
+  description: "Used to generate ideas, concepts, or outlines, but not final content."
+  icon: "lightbulb"
+  color: "#FFC107"
+
+- id: assistance
+  name: "Assistance & Debugging"
+  description: "Used to fix errors, suggest improvements, or overcome blocks in manual work."
+  icon: "wrench"
+  color: "#2196F3"
+
+- id: generation
+  name: "Content Generation"
+  description: "Used to create substantial portions of the final deliverable."
+  icon: "robot"
+  color: "#9C27B0"
+
+- id: refinement
+  name: "Refinement & Polish"
+  description: "Used to edit, format, or style content created by the human."
+  icon: "sparkles"
+  color: "#4CAF50"
