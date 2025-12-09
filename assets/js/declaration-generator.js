@@ -14,13 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const previewBox = document.getElementById('declarationPreview');
     const downloadPNG = document.getElementById('downloadPNG');
     const downloadSVG = document.getElementById('downloadSVG');
-    const embedCodeSection = document.getElementById('embedCodeSection');
-    const embedCodeDisplay = document.getElementById('embedCode');
-    const copyEmbedCodeButton = document.getElementById('copyEmbedCode');
     const htmlPreviewSection = document.getElementById('htmlPreviewSection');
     const embedPreview = document.getElementById('embedPreview');
-    const embedCodeDisplayPreview = document.getElementById('embedCodeDisplay');
-    const copyEmbedCodeBtnPreview = document.getElementById('copyEmbedCodeBtn');
+    const embedCodeDisplay = document.getElementById('embedCodeDisplay');
+    const copyEmbedCodeBtn = document.getElementById('copyEmbedCodeBtn');
 
     // Data
     const usageData = window.usageLevels.reduce((acc, level) => {
@@ -66,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 renderEntriesList();
                 updateEmbedCode();
                 if (entries.length > 0) {
-                    embedCodeSection.style.display = 'block';
                     htmlPreviewSection.style.display = 'block';
                 }
                 renderGraphic();
@@ -96,19 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addEntryBtn.addEventListener('click', addEntry);
 
-    copyEmbedCodeButton.addEventListener('click', function() {
+    copyEmbedCodeBtn.addEventListener('click', function() {
         navigator.clipboard.writeText(embedCodeDisplay.textContent).then(() => {
-            const originalText = copyEmbedCodeButton.textContent;
-            copyEmbedCodeButton.textContent = 'Copied!';
-            setTimeout(() => { copyEmbedCodeButton.textContent = originalText; }, 2000);
-        });
-    });
-
-    copyEmbedCodeBtnPreview.addEventListener('click', function() {
-        navigator.clipboard.writeText(embedCodeDisplayPreview.textContent).then(() => {
-            const originalText = copyEmbedCodeBtnPreview.textContent;
-            copyEmbedCodeBtnPreview.textContent = 'Copied!';
-            setTimeout(() => { copyEmbedCodeBtnPreview.textContent = originalText; }, 2000);
+            const originalText = copyEmbedCodeBtn.textContent;
+            copyEmbedCodeBtn.textContent = 'Copied!';
+            setTimeout(() => { copyEmbedCodeBtn.textContent = originalText; }, 2000);
         });
     });
 
@@ -161,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateEmbedCode();
         saveDeclaration();
         
-        embedCodeSection.style.display = 'block';
         
         // Auto-generate graphic
         renderGraphic();
@@ -174,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         saveDeclaration();
 
         if (entries.length === 0) {
-            embedCodeSection.style.display = 'none';
             htmlPreviewSection.style.display = 'none';
         }
         
@@ -248,8 +234,21 @@ document.addEventListener('DOMContentLoaded', function() {
             basePath = urlParts.slice(0, aiulIndex + 1).join('/').replace(origin, '');
         }
         
-        let html = `<div style="border: 4px solid #000; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; background: #fff;">
-  <div style="font-weight: 700; font-size: 24px; letter-spacing: 1px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 15px;">AI USAGE DECLARATION</div>`;
+        let html = `<style>@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+    .aiul-card { border: 4px solid #000; padding: 20px; font-family: 'Kanit', 'Segoe UI', Arial, sans-serif; max-width: 600px; background: #fff; }
+    .aiul-header { font-weight: 400; font-size: 24px; letter-spacing: 1px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
+    .aiul-entry { margin-bottom: 25px; }
+    .aiul-entry:last-child { margin-bottom: 0; }
+    .aiul-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .aiul-badge, .aiul-badge:visited, .aiul-badge:active, .aiul-badge:hover { background: #000; color: #fff !important; padding: 6px 12px; font-weight: 400; font-size: 14px; text-transform: uppercase; text-decoration: none; display: inline-block; line-height: 1; }
+    .aiul-arrow { font-weight: 400; font-size: 20px; line-height: 1; }
+    .aiul-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+    .aiul-usage, .aiul-usage:visited, .aiul-usage:active, .aiul-usage:hover { font-weight: 400; font-size: 18px; color: #000 !important; text-decoration: none; }
+    .aiul-details { font-size: 14px; color: #333; line-height: 20px; margin-top: 10px; }
+    .aiul-details .label { font-weight: 400; }
+    </style>
+    <div class="aiul-card">
+      <div class="aiul-header">AI USAGE DECLARATION</div>`;
         
         entries.forEach(e => {
             // Get modifier short code for display
@@ -269,27 +268,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const iconPath = getIconPath(e.usageIcon);
             
             html += `
-  <div style="margin-bottom: 30px;">
-    <div style="display: flex; align-items: center; margin-bottom: 8px;">
-      <a href="${modifierUrl}" style="background: #000; color: #fff; padding: 6px 12px; font-weight: 700; font-size: 14px; text-transform: uppercase; margin-right: 10px; text-decoration: none; display: inline-block;" title="Learn more about ${modifierCode} modifier">${modifierCode}</a>
-      <span style="margin-right: 10px; font-weight: 700; font-size: 20px;">→</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px; vertical-align: middle;">
-        <defs><style>.icon-path { fill: none; stroke: black; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }</style></defs>
-        ${iconPath}
-      </svg>
-      <a href="${usageUrl}" style="font-weight: 700; font-size: 18px; color: #000; text-decoration: none;" title="Learn more about ${e.usageName}">${e.usageName}</a>
-    </div>
-    ${e.tools || e.notes ? `<div style="font-size: 14px; color: #333; margin-left: 0;">${e.tools ? '<span><span style="font-weight: 700;">Tools:</span> ' + e.tools + '</span>' : ''}${e.tools && e.notes ? '<br />' : ''}${e.notes ? '<span>' + e.notes + '</span>' : ''}</div>` : ''}
-  </div>`;
+    <div class="aiul-entry">
+        <div class="aiul-row">
+            <a href="${modifierUrl}" class="aiul-badge" title="Learn more about ${modifierCode} modifier">${modifierCode}</a>
+            <span class="aiul-arrow" aria-hidden="true">→</span>
+            <svg class="aiul-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <defs><style>.icon-path { fill: none; stroke: black; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }</style></defs>
+                ${iconPath}
+            </svg>
+            <a href="${usageUrl}" class="aiul-usage" title="Learn more about ${e.usageName}">${e.usageName}</a>
+        </div>
+        ${e.tools || e.notes ? `<div class="aiul-details">${e.tools ? '<span><span class="label">Tools:</span> ' + e.tools + '</span>' : ''}${e.tools && e.notes ? '<br />' : ''}${e.notes ? '<span>' + e.notes + '</span>' : ''}</div>` : ''}
+    </div>`;
         });
         
         html += `</div>`;
         
-        // Update the legacy embed code display
+        // Update the embed code display and preview
         embedCodeDisplay.textContent = html;
-        
-        // Update the new preview section
-        embedCodeDisplayPreview.textContent = html;
         embedPreview.innerHTML = html;
         
         // Show/hide the HTML preview section based on whether there are entries
@@ -335,13 +331,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${totalHeight}" viewBox="0 0 ${width} ${totalHeight}">
   <defs>
     <style>
-      .header { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 1px; }
+      @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&amp;display=swap');
+      .header { font-family: 'Kanit', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: 1px; }
       .mod-bg { fill: black; }
-      .mod-text { fill: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; }
-      .arrow { fill: black; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; font-size: 20px; font-weight: 700; }
-      .usage { fill: black; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; font-weight: 700; font-size: 18px; }
-      .details { fill: #333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; font-size: 14px; font-weight: 400; }
-      .details-label { font-weight: 700; }
+      .mod-text { fill: white; font-family: 'Kanit', sans-serif; font-weight: 400; font-size: 14px; text-transform: uppercase; }
+      .arrow { fill: black; font-family: 'Kanit', sans-serif; font-size: 20px; font-weight: 400; }
+      .usage { fill: black; font-family: 'Kanit', sans-serif; font-weight: 400; font-size: 18px; }
+      .details { fill: #333; font-family: 'Kanit', sans-serif; font-size: 14px; font-weight: 400; }
+      .details-label { font-weight: 400; }
     </style>
   </defs>
   <rect width="100%" height="100%" fill="white"/>
@@ -427,28 +424,45 @@ document.addEventListener('DOMContentLoaded', function() {
             const url = URL.createObjectURL(svgBlob);
             
             const img = new Image();
+            
+            // Set timeout in case image loading hangs
+            const timeout = setTimeout(() => {
+                URL.revokeObjectURL(url);
+                console.error('SVG image loading timeout');
+                alert('Error generating PNG. The SVG took too long to load. Please try downloading SVG instead.');
+            }, 5000);
+            
             img.onload = function() {
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.scale(scale, scale);
-                ctx.drawImage(img, 0, 0);
-                
-                // Download
-                canvas.toBlob(function(blob) {
-                    const downloadUrl = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.download = 'ai-usage-declaration.png';
-                    link.href = downloadUrl;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(downloadUrl);
+                clearTimeout(timeout);
+                try {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.scale(scale, scale);
+                    ctx.drawImage(img, 0, 0);
+                    
+                    // Download
+                    canvas.toBlob(function(blob) {
+                        const downloadUrl = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.download = 'ai-usage-declaration.png';
+                        link.href = downloadUrl;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(downloadUrl);
+                        URL.revokeObjectURL(url);
+                    }, 'image/png');
+                } catch (drawError) {
+                    console.error('Error drawing to canvas:', drawError);
+                    alert('Error drawing to canvas. Please try downloading SVG instead.');
                     URL.revokeObjectURL(url);
-                }, 'image/png');
+                }
             };
             
-            img.onerror = function() {
-                console.error('Failed to load SVG image');
+            img.onerror = function(error) {
+                clearTimeout(timeout);
+                console.error('Failed to load SVG image:', error);
+                console.error('SVG content first 500 chars:', svgContent.substring(0, 500));
                 alert('Error generating PNG. Please try downloading SVG instead.');
                 URL.revokeObjectURL(url);
             };
