@@ -419,7 +419,7 @@ table td strong { color: #1E407C; font-weight: 500; }
 
 .entries-list .entry-item .entry-controls { display: flex; gap: 5px; }
 
-.entries-list .entry-item .entry-controls .icon-btn { background: none; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; padding: 2px 8px; font-size: 12px; }
+.entries-list .entry-item .entry-controls .icon-btn { background: none; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; padding: 2px 8px; font-size: 12px; color: #333; }
 
 .entries-list .entry-item .entry-controls .icon-btn:hover:not(:disabled) { background: #f0f0f0; }
 
