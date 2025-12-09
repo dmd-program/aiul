@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Usage Declaration - AIUL - AI Usage License Project</title>
+  <meta name="baseurl" content="/aiul">
+  <link rel="stylesheet" href="/aiul/assets/css/styles.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AI Usage Declaration | AIUL - AI Usage License Project</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="AI Usage Declaration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines." />
+<meta property="og:description" content="Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines." />
+<link rel="canonical" href="/aiul/declaration-generator.html" />
+<meta property="og:url" content="/aiul/declaration-generator.html" />
+<meta property="og:site_name" content="AIUL - AI Usage License Project" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AI Usage Declaration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines.","headline":"AI Usage Declaration","url":"/aiul/declaration-generator.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+  <!-- Load custom JavaScript files from page front matter -->
+  
+    
+      <script src="/aiul/assets/js/html2canvas.js"></script>
+    
+      <script src="/aiul/assets/js/declaration-generator.js"></script>
+    
+  
+</head>
+<body>
+  <!-- Header & Navigation -->
+<header>
+  <div class="logo tag-text">
+    <a href="/aiul/">AIUL</a>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul>
+      
+        <li><a href="/aiul/" >Home</a></li>
+      
+        <li><a href="/aiul/licenses.html" >Licenses</a></li>
+      
+        <li><a href="/aiul/guide.html" >Guide</a></li>
+      
+        <li><a href="/aiul/tag-generator.html" >Tag Generator</a></li>
+      
+        <li><a href="/aiul/declaration-generator.html" class="active" aria-current="page">Usage Declaration</a></li>
+      
+        <li><a href="/aiul/resources.html" >Resources</a></li>
+      
+    </ul>
+  </nav>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+    <span class="sr-only">Menu</span>
+    <div class="hamburger-icon">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="close-icon">
+      <span class="icon-close"></span>
+      <span class="icon-close"></span>
+    </div>
+  </button>
+</header>
+
+    <main>
+      <div class="page-content">
+  <h2>AI Usage Declaration</h2>
+  <p>Create a standardized declaration to transparently describe how AI tools were used in your work. Add multiple entries if you used AI in different ways for different parts of your project.</p>
+  
+  <div class="generator-container">
+    <div class="generator-controls">
+      <h3>1. Build Your Declaration</h3>
+      
+      <div class="control-panel" style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+        <div class="form-group">
+          <label for="modifierType">Domain / Media:</label>
+          <select id="modifierType" class="tag-select">
+            <option value="" disabled selected>Select a domain...</option>
+            
+            <option value="WR">WR (Writing)</option>
+            
+            <option value="IM">IM (Image)</option>
+            
+            <option value="VD">VD (Video)</option>
+            
+            <option value="AU">AU (Audio)</option>
+            
+            <option value="3D">3D (3D Design)</option>
+            
+            <option value="TR">TR (Traditional Media)</option>
+            
+            <option value="MX">MX (Mixed Media)</option>
+            
+            <option value="CO">CO (Code)</option>
+            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="usageLevel">Usage Level:</label>
+          <select id="usageLevel" class="tag-select">
+            <option value="" disabled selected>Select usage level...</option>
+            
+            <option value="ideation">Ideation & Brainstorming</option>
+            
+            <option value="assistance">Assistance & Debugging</option>
+            
+            <option value="generation">Content Generation</option>
+            
+            <option value="refinement">Refinement & Polish</option>
+            
+          </select>
+          <p id="usageDescription" class="help-text" style="margin-top: 5px; font-style: italic; color: #666; min-height: 1.2em;"></p>
+        </div>
+        
+        <div class="form-group">
+          <label for="toolUsed">AI Tool(s) (Optional):</label>
+          <input type="text" id="toolUsed" class="text-input" placeholder="e.g., ChatGPT, Midjourney" maxlength="60">
+          <small style="color: #666; font-size: 0.8em;">Max 60 characters</small>
+        </div>
+
+        <div class="form-group">
+          <label for="usageNotes">Details (Optional):</label>
+          <textarea id="usageNotes" class="text-input" rows="2" placeholder="Briefly describe what you did..." maxlength="75"></textarea>
+          <small style="color: #666; font-size: 0.8em;">Max 75 characters</small>
+        </div>
+        
+        <button id="addEntryBtn" class="primary-button" disabled>+ Add Entry</button>
+      </div>
+
+      <h3>2. Manage Entries</h3>
+      <div id="entriesList" class="entries-list">
+        <div class="empty-state">No entries added yet.</div>
+      </div>
+    </div>
+    
+    <div class="generator-preview" id="previewSection">
+      <h3>Preview</h3>
+      <div id="declarationPreview" class="declaration-preview-box">
+        <div class="placeholder-text" style="color: #999; font-style: italic;">
+          Add entries to generate your declaration graphic.
+        </div>
+      </div>
+      
+      <div class="download-options">
+        <button id="downloadPNG">Download PNG</button>
+        <button id="downloadSVG">Download SVG</button>
+      </div>
+
+      <div class="output-options" style="margin-top: 2rem;">
+        <h4>Text / Code Export</h4>
+        <div class="tab-container">
+          <button class="tab-btn active" data-tab="html">HTML</button>
+          <button class="tab-btn" data-tab="markdown">Markdown</button>
+          <button class="tab-btn" data-tab="text">Plain Text</button>
+        </div>
+        
+        <div class="code-display">
+          <pre id="codeOutput"></pre>
+          <button id="copyCode" class="secondary-button">Copy to Clipboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- HTML Embed Code section -->
+  <div id="embedCodeSection" style="display: none; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem;">
+    <h3>HTML Embed Code</h3>
+    <p>Copy and paste this code to embed the declaration image on your website:</p>
+    
+    <div class="embed-code-container" style="background: #f5f5f5; padding: 1.5rem; border-left: 4px solid #0f4c81; margin: 1rem 0; position: relative;">
+      <pre id="embedCode" style="white-space: pre-wrap; word-break: break-all; font-family: monospace; margin: 0; padding: 0;"></pre>
+      <button id="copyEmbedCode" class="secondary-button" style="margin-top: 1rem;">Copy Code</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Pass Jekyll data to JS
+  window.usageLevels = [{"id":"ideation","name":"Ideation & Brainstorming","description":"Used to generate ideas, concepts, or outlines, but not final content.","icon":"lightbulb","color":"#FFC107"},{"id":"assistance","name":"Assistance & Debugging","description":"Used to fix errors, suggest improvements, or overcome blocks in manual work.","icon":"wrench","color":"#2196F3"},{"id":"generation","name":"Content Generation","description":"Used to create substantial portions of the final deliverable.","icon":"robot","color":"#9C27B0"},{"id":"refinement","name":"Refinement & Polish","description":"Used to edit, format, or style content created by the human.","icon":"sparkles","color":"#4CAF50"}];
+  window.modifiers = [
+    
+    {
+      title: "WR",
+      full_name: "Writing",
+      code: "writing" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "IM",
+      full_name: "Image",
+      code: "image" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "VD",
+      full_name: "Video",
+      code: "video" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "AU",
+      full_name: "Audio",
+      code: "audio" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "3D",
+      full_name: "3D Design",
+      code: "3d" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "TR",
+      full_name: "Traditional Media",
+      code: "traditional-media" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "MX",
+      full_name: "Mixed Media",
+      code: "mixed-media" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "CO",
+      full_name: "Code",
+      code: "code" // Assuming slug or similar identifier
+    }
+    
+  ];
+</script>
+
+    </main>
+    <!-- Footer -->
+<footer>
+  <p class="bold">AI Usage License Project created by faculty in the Penn State DMD Program. CC-BY-4.0</p>
+  <p>
+    Submit issues or suggestions here: <a class="bold" href="https://github.com/dmd-program/aiul/issues">https://github.com/dmd-program/aiul/issues</a>
+  </p>
+  <p>
+    Note: This project is an intial draft to gather community feedback, and is not necessarily a functional website nor does it contain finalized language.
+  </p>
+  <p class="footer-links">
+    <a href="/aiul/legal-disclaimer.html">Legal Disclaimer</a>
+  </p>
+</footer>
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (menuToggle) {
+          menuToggle.addEventListener('click', function() {
+            // Check current state
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle the menu state
+            nav.classList.toggle('active');
+            
+            // Update ARIA attribute - toggle between true/false
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // Focus first menu item when opened
+            if (!isExpanded) {
+              setTimeout(function() {
+                const firstMenuItem = nav.querySelector('a');
+                if (firstMenuItem) {
+                  firstMenuItem.focus();
+                }
+              }, 100);
+            }
+          });
+          
+          // Add keyboard support
+          menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              menuToggle.click();
+            }
+          });
+          
+          // Close menu when pressing Escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+              nav.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
+              menuToggle.focus();
+            }
+          });
+        }
+      });
+    </script>
+</body>
+</html>
