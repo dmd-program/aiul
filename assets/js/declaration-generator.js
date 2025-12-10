@@ -274,7 +274,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="aiul-entry">
         <div class="aiul-row">
             <a href="${modifierUrl}" class="aiul-badge" title="Learn more about ${modifierCode} modifier">${modifierCode}</a>
-            <span class="aiul-arrow" aria-hidden="true">→</span>
             <svg class="aiul-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <defs><style>.icon-path { fill: none; stroke: black; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }</style></defs>
                 ${iconPath}
@@ -364,12 +363,9 @@ document.addEventListener('DOMContentLoaded', function() {
             svg += `<rect x="${padding}" y="${y-18}" width="${modWidth}" height="26" class="mod-bg"/>`;
             svg += `<text x="${padding + 12}" y="${y}" class="mod-text">${escapeXml(modifierCode)}</text>`;
             
-            // Arrow
-            svg += `<text x="${padding + modWidth + 10}" y="${y}" class="arrow">→</text>`;
-            
             // Usage Icon & Name
             const iconPath = getIconPath(e.usageIcon);
-            const iconX = padding + modWidth + 35;
+            const iconX = padding + modWidth + 15;
             const iconY = y - 14;
             
             svg += `<g transform="translate(${iconX}, ${iconY}) scale(0.8)">
