@@ -52,10 +52,10 @@ When declaring AI usage in Writing, consider these tool categories:
 
 Pair this domain with a usage level to create a full declaration:
 
-- **[Ideation & Brainstorming](/usage-levels/ideation/1.0.0/)** - AI for outlines and brainstorming
-- **[Assistance & Debugging](/usage-levels/assistance/1.0.0/)** - AI for fixing grammar or suggesting improvements
-- **[Content Generation](/usage-levels/generation/1.0.0/)** - AI for writing substantial content
-- **[Refinement & Polish](/usage-levels/refinement/1.0.0/)** - AI for editing and polishing
+- **[Ideation & Brainstorming]({{ '/usage-levels/ideation/1.0.0/' | relative_url }})** - AI for outlines and brainstorming
+- **[Assistance & Debugging]({{ '/usage-levels/assistance/1.0.0/' | relative_url }})** - AI for fixing grammar or suggesting improvements
+- **[Content Generation]({{ '/usage-levels/generation/1.0.0/' | relative_url }})** - AI for writing substantial content
+- **[Refinement & Polish]({{ '/usage-levels/refinement/1.0.0/' | relative_url }})** - AI for editing and polishing
 
 ---
 

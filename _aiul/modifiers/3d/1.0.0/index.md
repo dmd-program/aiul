@@ -53,10 +53,10 @@ When declaring AI usage in 3D Design, consider these tool categories:
 
 Pair this domain with a usage level to create a full declaration:
 
-- **[Ideation & Brainstorming](/usage-levels/ideation/1.0.0/)** - AI for concept exploration before modeling
-- **[Assistance & Debugging](/usage-levels/assistance/1.0.0/)** - AI to solve technical problems in your 3D work
-- **[Content Generation](/usage-levels/generation/1.0.0/)** - AI for substantial model or asset creation
-- **[Refinement & Polish](/usage-levels/refinement/1.0.0/)** - AI for optimization, texturing, or final rendering
+- **[Ideation & Brainstorming]({{ '/usage-levels/ideation/1.0.0/' | relative_url }})** - AI for concept exploration before modeling
+- **[Assistance & Debugging]({{ '/usage-levels/assistance/1.0.0/' | relative_url }})** - AI to solve technical problems in your 3D work
+- **[Content Generation]({{ '/usage-levels/generation/1.0.0/' | relative_url }})** - AI for substantial model or asset creation
+- **[Refinement & Polish]({{ '/usage-levels/refinement/1.0.0/' | relative_url }})** - AI for optimization, texturing, or final rendering
 
 ---
 

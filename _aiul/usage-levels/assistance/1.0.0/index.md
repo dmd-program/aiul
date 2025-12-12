@@ -44,14 +44,14 @@ Assistance is the appropriate declaration when:
 
 Pair this usage level with a domain to create a full declaration:
 
-- [3D Design](/modifiers/3d/1.0.0/)
-- [Audio](/modifiers/audio/1.0.0/)
-- [Code](/modifiers/code/1.0.0/)
-- [Image](/modifiers/image/1.0.0/)
-- [Mixed Media](/modifiers/mixed-media/1.0.0/)
-- [Traditional Media](/modifiers/traditional-media/1.0.0/)
-- [Video](/modifiers/video/1.0.0/)
-- [Writing](/modifiers/writing/1.0.0/)
+- [3D Design]({{ '/modifiers/3d/1.0.0/' | relative_url }})
+- [Audio]({{ '/modifiers/audio/1.0.0/' | relative_url }})
+- [Code]({{ '/modifiers/code/1.0.0/' | relative_url }})
+- [Image]({{ '/modifiers/image/1.0.0/' | relative_url }})
+- [Mixed Media]({{ '/modifiers/mixed-media/1.0.0/' | relative_url }})
+- [Traditional Media]({{ '/modifiers/traditional-media/1.0.0/' | relative_url }})
+- [Video]({{ '/modifiers/video/1.0.0/' | relative_url }})
+- [Writing]({{ '/modifiers/writing/1.0.0/' | relative_url }})
 
 ## Transparency Best Practices
 

@@ -38,10 +38,10 @@ The **Code** domain covers software development, programming, scripting, and all
 
 ## Related Usage Levels
 
-- [Ideation & Brainstorming](/usage-levels/ideation/1.0.0/)
-- [Assistance & Debugging](/usage-levels/assistance/1.0.0/)
-- [Content Generation](/usage-levels/generation/1.0.0/)
-- [Refinement & Polish](/usage-levels/refinement/1.0.0/)
+- [Ideation & Brainstorming]({{ '/usage-levels/ideation/1.0.0/' | relative_url }})
+- [Assistance & Debugging]({{ '/usage-levels/assistance/1.0.0/' | relative_url }})
+- [Content Generation]({{ '/usage-levels/generation/1.0.0/' | relative_url }})
+- [Refinement & Polish]({{ '/usage-levels/refinement/1.0.0/' | relative_url }})
 
 ---
 
