@@ -259,13 +259,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Use the stored modifierUrl from entry, or construct it
             const modifierUrl = e.modifierUrl 
-                ? `${origin}${e.modifierUrl}1.0.0/`
-                : `${origin}${basePath}/modifiers/${e.modifier.toLowerCase().replace(/\s+/g, '-')}/1.0.0/`;
+                ? `${origin}${e.modifierUrl}`
+                : `${origin}${basePath}/modifiers/${e.modifier.toLowerCase().replace(/\s+/g, '-')}/`;
             
             // Use the stored usageUrl from entry
             const usageUrl = e.usageUrl
                 ? `${origin}${e.usageUrl}`
-                : `${origin}${basePath}/usage-levels/${e.usageId}/1.0.0/`;
+                : `${origin}${basePath}/usage-levels/${e.usageId}/`;
             
             // Get icon SVG
             const iconPath = getIconPath(e.usageIcon);
