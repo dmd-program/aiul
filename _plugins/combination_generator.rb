@@ -10,16 +10,22 @@ module Jekyll
       Jekyll.logger.info("CombinationGenerator:", "Site source: #{site.source}")
       Jekyll.logger.info("CombinationGenerator:", "Site destination: #{site.dest}")
       
-      # Get all licenses and modifiers from their collections
-      licenses = site.collections['licenses'].docs
-      modifiers = site.collections['modifiers'].docs
+      # Load data from the YAML file instead of collections
+      aiul_data_file = File.join(site.source, '_data', 'aiul.yml')
+      unless File.exist?(aiul_data_file)
+        Jekyll.logger.error("CombinationGenerator:", "aiul.yml not found at #{aiul_data_file}")
+        return
+      end
       
-      # Debug info for collections
-      Jekyll.logger.info("CombinationGenerator:", "Found #{licenses.size} licenses and #{modifiers.size} modifiers")
+      require 'yaml'
+      aiul_data = YAML.unsafe_load_file(aiul_data_file)
       
-      # Log collection items with paths for debugging
-      licenses.each { |l| Jekyll.logger.info("CombinationGenerator:", "License: #{l.path} - #{l.data['title']}") }
-      modifiers.each { |m| Jekyll.logger.info("CombinationGenerator:", "Modifier: #{m.path} - #{m.data['title']}") }
+      # Extract licenses and modifiers from the data file
+      licenses_data = aiul_data['licenses']['items'] || {}
+      modifiers_data = aiul_data['modifiers']['items'] || {}
+      
+      # Debug info for data
+      Jekyll.logger.info("CombinationGenerator:", "Found #{licenses_data.size} licenses and #{modifiers_data.size} modifiers")
       
       # Create a combinations directory if it doesn't exist
       FileUtils.mkdir_p(File.join(site.source, 'combinations')) unless Dir.exist?(File.join(site.source, 'combinations'))
@@ -28,18 +34,23 @@ module Jekyll
       combinations = {}
       
       # First pass: Generate all combination pages
-      licenses.each do |license|
-        # Skip if title is missing
-        next unless license.data['title']
+      licenses_data.each do |license_key, license_data|
+        license_title = license_data['title'] || "AIUL-#{license_key.upcase}"
+        license_full_name = license_data['full_name'] || license_key
+        license_description = license_data['description'] || "No description available"
+        license_syllabus = license_data['syllabus_text'] || "No syllabus text available"
+        license_when_to_use = license_data['when_to_use'] || []
         
-        license_code = license.data['title'].to_s.sub(/^AIUL-/, '')
+        license_code = license_title.to_s.sub(/^AIUL-/, '')
         combinations[license_code] = {} unless combinations[license_code]
         
-        modifiers.each do |modifier|
-          # Skip if title is missing
-          next unless modifier.data['title']
+        modifiers_data.each do |modifier_key, modifier_data|
+          modifier_title = modifier_data['title'] || modifier_key.upcase
+          modifier_full_name = modifier_data['full_name'] || modifier_key
+          modifier_description = modifier_data['description'] || "No description available"
+          modifier_example = modifier_data['example'] || "See the full modifier page for examples."
           
-          modifier_code = modifier.data['title'].to_s
+          modifier_code = modifier_title.to_s
           
           # Skip combinations with missing data
           if license_code.empty? || modifier_code.empty?
@@ -52,15 +63,29 @@ module Jekyll
             # Log the combination being created
             Jekyll.logger.info("CombinationGenerator:", "Generating combination: #{license_code}-#{modifier_code}")
             
-            combination_page = CombinationPage.new(site, site.source, 'combinations', license, modifier, true)
+            combination_page = CombinationPage.new(site, site.source, 'combinations', 
+              {
+                'title' => license_title,
+                'full_name' => license_full_name,
+                'description' => license_description,
+                'syllabus_text' => license_syllabus,
+                'when_to_use' => license_when_to_use
+              },
+              {
+                'title' => modifier_title,
+                'full_name' => modifier_full_name,
+                'description' => modifier_description,
+                'example' => modifier_example
+              },
+              true)
             
             # Store the combination page data for later reference
             combinations[license_code][modifier_code] = {
               'title' => combination_page.data['title'],
               'url' => combination_page.data['permalink'],
-              'license_name' => license.data['full_name'] || license_code,
-              'modifier_name' => modifier.data['full_name'] || modifier_code,
-              'full_name' => "#{license.data['full_name'] || license_code} for #{modifier.data['full_name'] || modifier_code}"
+              'license_name' => license_full_name,
+              'modifier_name' => modifier_full_name,
+              'full_name' => "#{license_full_name} for #{modifier_full_name}"
             }
             
             # Add the page to the site's pages
@@ -117,8 +142,8 @@ module Jekyll
       @dir = dir
       
       # Safely extract codes and ensure they're strings
-      license_code = license.data['title'].to_s.sub(/^AIUL-/, '')
-      modifier_code = modifier.data['title'].to_s
+      license_code = license['title'].to_s.sub(/^AIUL-/, '')
+      modifier_code = modifier['title'].to_s
       
       # Ensure these values aren't blank
       raise ArgumentError, "License code cannot be empty" if license_code.empty?
@@ -131,14 +156,14 @@ module Jekyll
       Jekyll.logger.debug("CombinationPage:", "Creating page with name: #{@name}")
       
       # Define defaults for any potentially nil values
-      license_name = license.data['full_name'] || license_code
-      license_description = license.data['description'] || "No description available"
-      license_syllabus = license.data['syllabus_text'] || "No syllabus text available"
-      license_when_to_use = license.data['when_to_use'] || []
+      license_name = license['full_name'] || license_code
+      license_description = license['description'] || "No description available"
+      license_syllabus = license['syllabus_text'] || "No syllabus text available"
+      license_when_to_use = license['when_to_use'] || []
       
-      modifier_name = modifier.data['full_name'] || modifier_code
-      modifier_description = modifier.data['description'] || "No description available"
-      modifier_example = modifier.data['example_use_cases'] || "See the full modifier page for examples."
+      modifier_name = modifier['full_name'] || modifier_code
+      modifier_description = modifier['description'] || "No description available"
+      modifier_example = modifier['example'] || "See the full modifier page for examples."
       
       # Choose layout based on flag
       layout = use_versioned_layout ? 'combination-versioned' : 'combination'
@@ -152,12 +177,12 @@ module Jekyll
         'license_description' => license_description,
         'license_syllabus' => license_syllabus,
         'license_when_to_use' => license_when_to_use,
-        'license_url' => license.url,
+        'license_url' => "/licenses/#{license_code.downcase}/1.0.0/",
         'modifier_code' => modifier_code,
         'modifier_name' => modifier_name,
         'modifier_description' => modifier_description,
         'modifier_example' => modifier_example,
-        'modifier_url' => modifier.data['permalink'] || modifier.url,
+        'modifier_url' => "/modifiers/#{modifier_code.downcase}/1.0.0/",
         'combination_image_path' => "/assets/images/licenses/aiul-#{license_code.downcase}-#{modifier_code.downcase}.png",
         'permalink' => "/combinations/#{license_code.downcase}-#{modifier_code.downcase}.html"
       }
@@ -169,25 +194,9 @@ module Jekyll
       @data['related_license_combinations'] = []
       @data['related_modifier_combinations'] = []
       
-      # Extract HTML content from modifier's markdown for the section content
-      # This parses the content to extract the "Applicable Tools" and "Considerations" sections
-      modifier_content = modifier.content.to_s
-      
-      # Extract Applicable Tools section
-      if modifier_content =~ /#{Regexp.escape('### Applicable Tools')}(.*?)(?=###|\z)/m
-        applicable_tools_content = $1.strip
-        @data['modifier_applicable_tools_html'] = "<ul>\n#{applicable_tools_content.gsub(/^- /, '<li>').gsub(/^/, '  ').gsub(/(?<!<\/li>)$/, '</li>')}\n</ul>"
-      else
-        @data['modifier_applicable_tools_html'] = "<p>See the <a href=\"#{modifier.url}\">#{modifier.data['title']} modifier page</a> for details.</p>"
-      end
-      
-      # Extract Considerations section
-      if modifier_content =~ /#{Regexp.escape('### Considerations')}(.*?)(?=###|\z)/m
-        considerations_content = $1.strip
-        @data['modifier_considerations_html'] = "<ul>\n#{considerations_content.gsub(/^- /, '<li>').gsub(/^/, '  ').gsub(/(?<!<\/li>)$/, '</li>')}\n</ul>"
-      else
-        @data['modifier_considerations_html'] = "<p>See the <a href=\"#{modifier.url}\">#{modifier.data['title']} modifier page</a> for details.</p>"
-      end
+      # For now, skip the modifier content extraction since we're using hashes
+      @data['modifier_applicable_tools_html'] = "<p>See the <a href=\"#{@data['modifier_url']}\">#{modifier_name} modifier page</a> for details.</p>"
+      @data['modifier_considerations_html'] = "<p>See the <a href=\"#{@data['modifier_url']}\">#{modifier_name} modifier page</a> for details.</p>"
     end
   end
 end

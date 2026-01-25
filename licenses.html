@@ -19,9 +19,10 @@ title: AIUL Licenses
       </tr>
     </thead>
     <tbody>
-      {% for license in site.licenses %}
+      {% for license_key in site.data.aiul.licenses.items %}
+        {% assign license = license_key[1] %}
       <tr>
-        <td><strong><a href="{{ 'licenses/' | append: license.slug | append: '/1.0.0/' | relative_url }}">{{ license.title }}</a></strong> ({{ license.full_name }})</td>
+        <td><strong><a href="{{ license.versions[license.latest].url }}">{{ license.title }}</a></strong> ({{ license.full_name }})</td>
         <td>{{ license.description }}</td>
         <td>{{ license.example }}</td>
       </tr>
@@ -42,9 +43,10 @@ title: AIUL Licenses
       </tr>
     </thead>
     <tbody>
-      {% for modifier in site.modifiers %}
+      {% for modifier_key in site.data.aiul.modifiers.items %}
+        {% assign modifier = modifier_key[1] %}
       <tr>
-        <td><strong><a href="{{ 'modifiers/' | append: modifier.slug | append: '/1.0.0/' | relative_url }}">-{{ modifier.title }}</a></strong> ({{ modifier.full_name }})</td>
+        <td><strong><a href="{{ modifier.versions[modifier.latest].url }}">-{{ modifier.title }}</a></strong> ({{ modifier.full_name }})</td>
         <td>{{ modifier.description }}</td>
         <td>{{ modifier.example }}</td>
       </tr>

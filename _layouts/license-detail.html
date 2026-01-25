@@ -94,9 +94,10 @@ layout: default
   <div class="license-navigation">
     <h2>Other Licenses</h2>
     <div class="license-grid">
-      {% for license in site.licenses %}
+      {% for license_key in site.data.aiul.licenses.items %}
+        {% assign license = license_key[1] %}
         {% if license.title != page.title %}
-          <a href="{{ license.url | relative_url }}" class="license-link">
+          <a href="{{ license.versions[license.latest].url }}" class="license-link">
             <div class="license-icon">{{ license.title }}</div>
             <div class="license-name">{{ license.full_name }}</div>
           </a>

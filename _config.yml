@@ -65,12 +65,8 @@ navigation:
 # Collections
 collections:
   licenses:
-    output: true
-    sort_by: order
-    permalink: /licenses/:name:output_ext
+    output: false
   modifiers:
-    output: true
-    sort_by: order
-    permalink: /modifiers/:name:output_ext
+    output: false
   aiul:
     output: true
