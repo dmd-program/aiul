@@ -2,39 +2,12 @@
   "licenses": [
     
     {
-      "code": "NA",
-      "fullName": "Not Allowed",
-      "description": "No AI tools allowed. All work must be entirely student-generated.",
-      "syllabusText": "no AI tools are permitted. All work must be entirely your own without assistance from AI tools.",
-      "example": "Use this license for traditional exams, foundational skill-building exercises, and assignments where the development of specific techniques is the primary learning objective.",
-      "order": 1
-    },
-    
-    {
-      "code": "WA",
-      "fullName": "With Approval",
-      "description": "Limited AI assistance is permitted only with instructor pre-approval.",
-      "syllabusText": "limited AI assistance is permitted only with instructor pre-approval. If you wish to use any AI tools, you must request permission in advance and document how they will be used.",
-      "example": "Use this license for assignments that are typically expected to be completed without AI assistance, but where exceptions may be appropriate for specific students or circumstances.",
-      "order": 2
-    },
-    
-    {
       "code": "CD",
       "fullName": "Conceptual Development",
       "description": "AI tools may be used for research and ideation, but the final work must be entirely student-generated.",
       "syllabusText": "you may use AI tools for research and idea generation, but the final work must be entirely your own. You must document any AI tools used in your process.",
       "example": "Use this license for research papers, creative briefs, project planning, and assignments where AI can help with background information but the execution should demonstrate student skills.",
       "order": 3
-    },
-    
-    {
-      "code": "TC",
-      "fullName": "Transformative Collaboration",
-      "description": "AI may be used as a collaborative tool, but outputs must be significantly transformed.",
-      "syllabusText": "you may use AI as a collaborative tool, but you must significantly transform and modify any AI outputs. Your work should demonstrate critical thinking and creative direction.",
-      "example": "Use this license for creative writing assignments, design drafts, prototyping, and assignments where AI can assist but significant human transformation is expected.",
-      "order": 4
     },
     
     {
@@ -53,33 +26,44 @@
       "syllabusText": "AI usage is a required component of this assignment. You are expected to demonstrate sophisticated use of AI tools and document your process thoroughly.",
       "example": "Use this license for assignments specifically focused on AI tools, prompt engineering exercises, AI ethics discussions, and projects where AI usage itself is a learning objective.",
       "order": 6
+    },
+    
+    {
+      "code": "NA",
+      "fullName": "Not Allowed",
+      "description": "No AI tools allowed. All work must be entirely student-generated.",
+      "syllabusText": "no AI tools are permitted. All work must be entirely your own without assistance from AI tools.",
+      "example": "Use this license for traditional exams, foundational skill-building exercises, and assignments where the development of specific techniques is the primary learning objective.",
+      "order": 1
+    },
+    
+    {
+      "code": "TC",
+      "fullName": "Transformative Collaboration",
+      "description": "AI may be used as a collaborative tool, but outputs must be significantly transformed.",
+      "syllabusText": "you may use AI as a collaborative tool, but you must significantly transform and modify any AI outputs. Your work should demonstrate critical thinking and creative direction.",
+      "example": "Use this license for creative writing assignments, design drafts, prototyping, and assignments where AI can assist but significant human transformation is expected.",
+      "order": 4
+    },
+    
+    {
+      "code": "WA",
+      "fullName": "With Approval",
+      "description": "Limited AI assistance is permitted only with instructor pre-approval.",
+      "syllabusText": "limited AI assistance is permitted only with instructor pre-approval. If you wish to use any AI tools, you must request permission in advance and document how they will be used.",
+      "example": "Use this license for assignments that are typically expected to be completed without AI assistance, but where exceptions may be appropriate for specific students or circumstances.",
+      "order": 2
     }
     
   ],
   "modifiers": [
     
     {
-      "code": "WR",
-      "fullName": "Writing",
-      "description": "For assignments involving substantial written content",
-      "example": "Essays, research papers, creative writing, reports, scripts, poetry",
-      "order": 1
-    },
-    
-    {
-      "code": "IM",
-      "fullName": "Image",
-      "description": "For assignments involving static visual content",
-      "example": "Photography, digital illustration, graphic design, posters, data visualization",
-      "order": 2
-    },
-    
-    {
-      "code": "VD",
-      "fullName": "Video",
-      "description": "For assignments involving moving images",
-      "example": "Films, animations, motion graphics, video essays, promotional videos",
-      "order": 3
+      "code": "3D",
+      "fullName": "3D Design",
+      "description": "For assignments involving 3D modeling, animation, or virtual environments",
+      "example": "3D modeling, game design, virtual reality, architectural visualization, character animation",
+      "order": 5
     },
     
     {
@@ -91,19 +75,19 @@
     },
     
     {
-      "code": "3D",
-      "fullName": "3D Design",
-      "description": "For assignments involving 3D modeling, animation, or virtual environments",
-      "example": "3D modeling, game design, virtual reality, architectural visualization, character animation",
-      "order": 5
+      "code": "CO",
+      "fullName": "Code",
+      "description": "For assignments involving programming or software development",
+      "example": "Software development, web applications, algorithms, data science scripts, computational art",
+      "order": 8
     },
     
     {
-      "code": "TR",
-      "fullName": "Traditional Media",
-      "description": "For assignments involving physical art media where AI might be used for planning or reference",
-      "example": "Painting, drawing, sculpture, printmaking, ceramics, textiles",
-      "order": 6
+      "code": "IM",
+      "fullName": "Image",
+      "description": "For assignments involving static visual content",
+      "example": "Photography, digital illustration, graphic design, posters, data visualization",
+      "order": 2
     },
     
     {
@@ -115,11 +99,27 @@
     },
     
     {
-      "code": "CO",
-      "fullName": "Code",
-      "description": "For assignments involving programming or software development",
-      "example": "Software development, web applications, algorithms, data science scripts, computational art",
-      "order": 8
+      "code": "TR",
+      "fullName": "Traditional Media",
+      "description": "For assignments involving physical art media where AI might be used for planning or reference",
+      "example": "Painting, drawing, sculpture, printmaking, ceramics, textiles",
+      "order": 6
+    },
+    
+    {
+      "code": "VD",
+      "fullName": "Video",
+      "description": "For assignments involving moving images",
+      "example": "Films, animations, motion graphics, video essays, promotional videos",
+      "order": 3
+    },
+    
+    {
+      "code": "WR",
+      "fullName": "Writing",
+      "description": "For assignments involving substantial written content",
+      "example": "Essays, research papers, creative writing, reports, scripts, poetry",
+      "order": 1
     }
     
   ]

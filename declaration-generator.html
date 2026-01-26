@@ -103,21 +103,21 @@
           <select id="modifierType" class="tag-select" aria-required="true" aria-label="Domain / Media (required)">
             <option value="" disabled selected>Select a domain...</option>
             
-            <option value="Writing">WR (Writing)</option>
-            
-            <option value="Image">IM (Image)</option>
-            
-            <option value="Video">VD (Video)</option>
+            <option value="3D Design">3D (3D Design)</option>
             
             <option value="Audio">AU (Audio)</option>
             
-            <option value="3D Design">3D (3D Design)</option>
+            <option value="Code">CO (Code)</option>
             
-            <option value="Traditional Media">TR (Traditional Media)</option>
+            <option value="Image">IM (Image)</option>
             
             <option value="Mixed Media">MX (Mixed Media)</option>
             
-            <option value="Code">CO (Code)</option>
+            <option value="Traditional Media">TR (Traditional Media)</option>
+            
+            <option value="Video">VD (Video)</option>
+            
+            <option value="Writing">WR (Writing)</option>
             
           </select>
         </div>
@@ -201,21 +201,9 @@
   window.modifiers = [
     
     {
-      title: "WR",
-      full_name: "Writing",
-      code: "writing" // Assuming slug or similar identifier
-    },
-    
-    {
-      title: "IM",
-      full_name: "Image",
-      code: "image" // Assuming slug or similar identifier
-    },
-    
-    {
-      title: "VD",
-      full_name: "Video",
-      code: "video" // Assuming slug or similar identifier
+      title: "3D",
+      full_name: "3D Design",
+      code: "3d" // Assuming slug or similar identifier
     },
     
     {
@@ -225,15 +213,15 @@
     },
     
     {
-      title: "3D",
-      full_name: "3D Design",
-      code: "3d" // Assuming slug or similar identifier
+      title: "CO",
+      full_name: "Code",
+      code: "code" // Assuming slug or similar identifier
     },
     
     {
-      title: "TR",
-      full_name: "Traditional Media",
-      code: "traditional-media" // Assuming slug or similar identifier
+      title: "IM",
+      full_name: "Image",
+      code: "image" // Assuming slug or similar identifier
     },
     
     {
@@ -243,9 +231,21 @@
     },
     
     {
-      title: "CO",
-      full_name: "Code",
-      code: "code" // Assuming slug or similar identifier
+      title: "TR",
+      full_name: "Traditional Media",
+      code: "traditional-media" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "VD",
+      full_name: "Video",
+      code: "video" // Assuming slug or similar identifier
+    },
+    
+    {
+      title: "WR",
+      full_name: "Writing",
+      code: "writing" // Assuming slug or similar identifier
     }
     
   ];
