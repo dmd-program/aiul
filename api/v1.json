@@ -1,7 +1,8 @@
 {
   "version": "1.0.0",
-  "generated": "2026-01-30T16:46:43.694Z",
+  "generated": "2026-01-30T16:51:04.561Z",
   "baseUrl": "https://dmd-program.github.io/aiul",
+  "cdnUrl": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main",
   "documentation": "https://dmd-program.github.io/aiul/guide.html",
   "licenses": [
     {
@@ -11,7 +12,7 @@
       "fullName": "Not Allowed",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/na/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -21,7 +22,7 @@
       "fullName": "With Approval",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/wa/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -31,7 +32,7 @@
       "fullName": "Conceptual Development",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/cd/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -41,7 +42,7 @@
       "fullName": "Transformative Collaboration",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/tc/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -51,7 +52,7 @@
       "fullName": "Directed Production",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/dp/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -61,7 +62,7 @@
       "fullName": "Integrated Usage",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/iu/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu.png",
       "released": "2025-12-09T00:00:00.000Z"
     }
   ],
@@ -154,7 +155,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-3d.png"
     },
     {
       "id": "na-au",
@@ -170,7 +171,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-au.png"
     },
     {
       "id": "na-co",
@@ -186,7 +187,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-co.png"
     },
     {
       "id": "na-im",
@@ -202,7 +203,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-im.png"
     },
     {
       "id": "na-mx",
@@ -218,7 +219,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-mx.png"
     },
     {
       "id": "na-tr",
@@ -234,7 +235,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-tr.png"
     },
     {
       "id": "na-vd",
@@ -250,7 +251,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-vd.png"
     },
     {
       "id": "na-wr",
@@ -266,7 +267,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/na-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na-wr.png"
     },
     {
       "id": "wa-3d",
@@ -282,7 +283,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-3d.png"
     },
     {
       "id": "wa-au",
@@ -298,7 +299,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-au.png"
     },
     {
       "id": "wa-co",
@@ -314,7 +315,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-co.png"
     },
     {
       "id": "wa-im",
@@ -330,7 +331,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-im.png"
     },
     {
       "id": "wa-mx",
@@ -346,7 +347,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-mx.png"
     },
     {
       "id": "wa-tr",
@@ -362,7 +363,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-tr.png"
     },
     {
       "id": "wa-vd",
@@ -378,7 +379,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-vd.png"
     },
     {
       "id": "wa-wr",
@@ -394,7 +395,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/wa-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa-wr.png"
     },
     {
       "id": "cd-3d",
@@ -410,7 +411,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-3d.png"
     },
     {
       "id": "cd-au",
@@ -426,7 +427,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-au.png"
     },
     {
       "id": "cd-co",
@@ -442,7 +443,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-co.png"
     },
     {
       "id": "cd-im",
@@ -458,7 +459,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-im.png"
     },
     {
       "id": "cd-mx",
@@ -474,7 +475,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-mx.png"
     },
     {
       "id": "cd-tr",
@@ -490,7 +491,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-tr.png"
     },
     {
       "id": "cd-vd",
@@ -506,7 +507,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-vd.png"
     },
     {
       "id": "cd-wr",
@@ -522,7 +523,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/cd-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd-wr.png"
     },
     {
       "id": "tc-3d",
@@ -538,7 +539,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-3d.png"
     },
     {
       "id": "tc-au",
@@ -554,7 +555,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-au.png"
     },
     {
       "id": "tc-co",
@@ -570,7 +571,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-co.png"
     },
     {
       "id": "tc-im",
@@ -586,7 +587,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-im.png"
     },
     {
       "id": "tc-mx",
@@ -602,7 +603,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-mx.png"
     },
     {
       "id": "tc-tr",
@@ -618,7 +619,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-tr.png"
     },
     {
       "id": "tc-vd",
@@ -634,7 +635,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-vd.png"
     },
     {
       "id": "tc-wr",
@@ -650,7 +651,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/tc-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc-wr.png"
     },
     {
       "id": "dp-3d",
@@ -666,7 +667,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-3d.png"
     },
     {
       "id": "dp-au",
@@ -682,7 +683,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-au.png"
     },
     {
       "id": "dp-co",
@@ -698,7 +699,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-co.png"
     },
     {
       "id": "dp-im",
@@ -714,7 +715,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-im.png"
     },
     {
       "id": "dp-mx",
@@ -730,7 +731,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-mx.png"
     },
     {
       "id": "dp-tr",
@@ -746,7 +747,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-tr.png"
     },
     {
       "id": "dp-vd",
@@ -762,7 +763,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-vd.png"
     },
     {
       "id": "dp-wr",
@@ -778,7 +779,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/dp-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp-wr.png"
     },
     {
       "id": "iu-3d",
@@ -794,7 +795,7 @@
         "title": "3D Design"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-3d.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-3d.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-3d.png"
     },
     {
       "id": "iu-au",
@@ -810,7 +811,7 @@
         "title": "Audio"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-au.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-au.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-au.png"
     },
     {
       "id": "iu-co",
@@ -826,7 +827,7 @@
         "title": "Code"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-co.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-co.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-co.png"
     },
     {
       "id": "iu-im",
@@ -842,7 +843,7 @@
         "title": "Image"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-im.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-im.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-im.png"
     },
     {
       "id": "iu-mx",
@@ -858,7 +859,7 @@
         "title": "Mixed Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-mx.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-mx.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-mx.png"
     },
     {
       "id": "iu-tr",
@@ -874,7 +875,7 @@
         "title": "Traditional Media"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-tr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-tr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-tr.png"
     },
     {
       "id": "iu-vd",
@@ -890,7 +891,7 @@
         "title": "Video"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-vd.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-vd.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-vd.png"
     },
     {
       "id": "iu-wr",
@@ -906,7 +907,7 @@
         "title": "Writing"
       },
       "url": "https://dmd-program.github.io/aiul/combinations/iu-wr.html",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu-wr.png"
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu-wr.png"
     }
   ],
   "usageLevels": [
