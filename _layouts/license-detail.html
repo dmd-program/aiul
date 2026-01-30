@@ -52,7 +52,8 @@ layout: default
     <p>This license can be combined with the following media modifiers to specify which types of AI tools may be used:</p>
     
     <div class="modifier-grid">
-      {% for modifier in site.modifiers %}
+      {% for modifier_key in site.data.aiul.modifiers.items %}
+        {% assign modifier = modifier_key[1] %}
         {% assign modifier_license_path = page.title | downcase | remove: "aiul-" | append: "-" | append: modifier.title | downcase %}
         {% assign modifier_image_path = "/assets/images/licenses/aiul-" | append: modifier_license_path | append: ".png" | relative_url %}
         {% assign combination_url = "/combinations/" | append: modifier_license_path | append: ".html" | relative_url %}

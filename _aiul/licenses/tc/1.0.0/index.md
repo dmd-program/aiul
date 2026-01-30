@@ -88,14 +88,14 @@ Use this license for creative writing assignments, design drafts, prototyping, a
 
 AIUL-TC can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-TC-WR](/combinations/tc-wr/) - Writing assignments with transformative collaboration
-- [AIUL-TC-IM](/combinations/tc-im/) - Image work with transformative collaboration
-- [AIUL-TC-VD](/combinations/tc-vd/) - Video work with transformative collaboration
-- [AIUL-TC-AU](/combinations/tc-au/) - Audio work with transformative collaboration
-- [AIUL-TC-3D](/combinations/tc-3d/) - 3D work with transformative collaboration
-- [AIUL-TC-TR](/combinations/tc-tr/) - Traditional media with transformative collaboration
-- [AIUL-TC-MX](/combinations/tc-mx/) - Mixed media with transformative collaboration
-- [AIUL-TC-CO](/combinations/tc-co/) - Code with transformative collaboration
+- [AIUL-TC-WR](/aiul/combinations/tc-wr.html) - Writing assignments with transformative collaboration
+- [AIUL-TC-IM](/aiul/combinations/tc-im.html) - Image work with transformative collaboration
+- [AIUL-TC-VD](/aiul/combinations/tc-vd.html) - Video work with transformative collaboration
+- [AIUL-TC-AU](/aiul/combinations/tc-au.html) - Audio work with transformative collaboration
+- [AIUL-TC-3D](/aiul/combinations/tc-3d.html) - 3D work with transformative collaboration
+- [AIUL-TC-TR](/aiul/combinations/tc-tr.html) - Traditional media with transformative collaboration
+- [AIUL-TC-MX](/aiul/combinations/tc-mx.html) - Mixed media with transformative collaboration
+- [AIUL-TC-CO](/aiul/combinations/tc-co.html) - Code with transformative collaboration
 
 ## Frequently Asked Questions
 
