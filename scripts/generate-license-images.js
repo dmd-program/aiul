@@ -2,8 +2,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const { createCanvas, loadImage } = require('canvas');
+const { createCanvas, loadImage, registerFont } = require('canvas');
 const { JSDOM } = require('jsdom');
+
+// Register local fonts
+const fontsDir = path.join(__dirname, '..', 'assets', 'fonts');
+registerFont(path.join(fontsDir, 'Kanit-Regular.ttf'), { family: 'Kanit', weight: 'normal' });
+registerFont(path.join(fontsDir, 'Kanit-Bold.ttf'), { family: 'Kanit', weight: 'bold' });
 
 // Create a virtual DOM environment
 const dom = new JSDOM(`<!DOCTYPE html><html><body>
@@ -106,10 +111,9 @@ function createSVG(licenseCode, modifierCode = null, forPNG = false) {
   // Create SVG with embedded styles
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}">`;
   
-  // Add embedded font and exact styling for better rendering
+  // Add embedded font styling (fonts are registered with canvas)
   svg += `<defs>
       <style>
-          @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&amp;display=swap');
           .tag-text { 
               font-family: 'Kanit', sans-serif;
               font-weight: 700;
@@ -161,11 +165,98 @@ function createSVG(licenseCode, modifierCode = null, forPNG = false) {
   return svg;
 }
 
+// Generate PNG directly by drawing on canvas (no SVG intermediate)
+async function generatePNGDirectly(licenseCode, modifierCode, outputPath) {
+  try {
+    // Configuration matching the SVG design
+    const fontSize = 32;
+    const fontSizeModifier = 24;
+    const borderWidth = 8;
+    const padding = 12;
+    const scale = 2; // Higher resolution
+    
+    // Calculate dimensions
+    const mainText = `AIUL-${licenseCode}`;
+    const charWidth = fontSize * 0.6;
+    const mainTextWidth = mainText.length * charWidth;
+    const tagWidth = mainTextWidth + (padding * 2);
+    const tagHeight = fontSize + (padding * 2);
+    
+    let modifierWidth = 0;
+    let totalWidth = tagWidth;
+    let modifierText = '';
+    
+    if (modifierCode) {
+      modifierText = modifierCode;
+      modifierWidth = modifierText.length * charWidth + (padding * 2);
+      totalWidth += modifierWidth;
+    }
+    
+    // Create high-resolution canvas
+    const canvas = createCanvas(totalWidth * scale, tagHeight * scale);
+    const ctx = canvas.getContext('2d');
+    
+    // Scale for high resolution
+    ctx.scale(scale, scale);
+    
+    // Enable antialiasing
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    // Draw main tag background (white)
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tagWidth, tagHeight);
+    
+    // Draw main tag border
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = borderWidth;
+    ctx.strokeRect(borderWidth / 2, borderWidth / 2, tagWidth - borderWidth, tagHeight - borderWidth);
+    
+    // Draw main tag text with Kanit Bold
+    ctx.fillStyle = '#000000';
+    ctx.font = `bold ${fontSize}px Kanit, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(mainText, tagWidth / 2, tagHeight / 2);
+    
+    // Draw modifier if present
+    if (modifierCode) {
+      const modifierX = tagWidth;
+      
+      // Draw modifier background (black)
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(modifierX, 0, modifierWidth, tagHeight);
+      
+      // Draw modifier border
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = borderWidth;
+      ctx.strokeRect(modifierX + borderWidth / 2, borderWidth / 2, modifierWidth - borderWidth, tagHeight - borderWidth);
+      
+      // Draw modifier text with Kanit Regular
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `${fontSizeModifier}px Kanit, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(modifierText, modifierX + modifierWidth / 2, tagHeight / 2);
+    }
+    
+    // Write to PNG
+    const buffer = canvas.toBuffer('image/png', {
+      compressionLevel: 6,
+      filters: canvas.PNG_ALL_FILTERS
+    });
+    fs.writeFileSync(outputPath, buffer);
+    
+    console.log(`Generated: ${outputPath}`);
+  } catch (error) {
+    console.error('Error generating PNG:', error);
+  }
+}
+
 async function generatePNGFromSVG(svgContent, outputPath) {
     try {
-      // Instead of using the default SVG size, let's create a much larger SVG first
-      // by modifying the SVG content to have larger dimensions
-  
+      // DEPRECATED: This function is no longer used
+      // We now draw directly on canvas to ensure proper font rendering
       // Parse the SVG to modify its dimensions
       let biggerSvgContent = svgContent;
       
@@ -247,8 +338,7 @@ async function generateAllLicenseImages() {
     const licenseCode = typeof license === 'string' ? license : license.code;
     
     const outputPath = path.join(outputDir, `aiul-${licenseCode.toLowerCase()}.png`);
-    const svgContent = createSVG(licenseCode, null, true);
-    await generatePNGFromSVG(svgContent, outputPath);
+    await generatePNGDirectly(licenseCode, null, outputPath);
     
     // Generate license + modifier combinations
     for (const modifier of modifierTypes) {
@@ -256,8 +346,7 @@ async function generateAllLicenseImages() {
       const modifierCode = typeof modifier === 'string' ? modifier : modifier.code;
       
       const modOutputPath = path.join(outputDir, `aiul-${licenseCode.toLowerCase()}-${modifierCode.toLowerCase()}.png`);
-      const modSvgContent = createSVG(licenseCode, modifierCode, true);
-      await generatePNGFromSVG(modSvgContent, modOutputPath);
+      await generatePNGDirectly(licenseCode, modifierCode, modOutputPath);
     }
   }
   

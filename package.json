@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Generates static license images for the AIUL Project",
   "scripts": {
-    "generate-images": "node scripts/generate-license-images.js"
+    "download-fonts": "node scripts/download-fonts.js",
+    "generate-images": "node scripts/generate-license-images.js",
+    "generate-api": "node scripts/generate-api.js"
   },
   "dependencies": {
     "canvas": "^2.11.2",
+    "js-yaml": "^4.1.1",
     "jsdom": "^22.1.0"
   }
 }

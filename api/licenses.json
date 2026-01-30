@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-01-30T16:33:03.955Z",
+  "data": [
+    {
+      "id": "na",
+      "code": "NA",
+      "title": "AIUL-NA",
+      "fullName": "Not Allowed",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/na/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "wa",
+      "code": "WA",
+      "title": "AIUL-WA",
+      "fullName": "With Approval",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/wa/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "cd",
+      "code": "CD",
+      "title": "AIUL-CD",
+      "fullName": "Conceptual Development",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/cd/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "tc",
+      "code": "TC",
+      "title": "AIUL-TC",
+      "fullName": "Transformative Collaboration",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/tc/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "dp",
+      "code": "DP",
+      "title": "AIUL-DP",
+      "fullName": "Directed Production",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/dp/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "iu",
+      "code": "IU",
+      "title": "AIUL-IU",
+      "fullName": "Integrated Usage",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/licenses/iu/1.0.0/",
+      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu.png",
+      "released": "2025-12-09T00:00:00.000Z"
+    }
+  ]
+}

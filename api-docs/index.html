@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Documentation - AIUL - AI Usage License Project</title>
+  <meta name="baseurl" content="/aiul">
+  <link rel="stylesheet" href="/aiul/assets/css/styles.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>API Documentation | AIUL - AI Usage License Project</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="API Documentation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines." />
+<meta property="og:description" content="Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines." />
+<link rel="canonical" href="https://dmd-program.github.io/aiul/api-docs/" />
+<meta property="og:url" content="https://dmd-program.github.io/aiul/api-docs/" />
+<meta property="og:site_name" content="AIUL - AI Usage License Project" />
+<meta property="og:image" content="https://dmd-program.github.io/aiul/aiul/assets/images/hero-image.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://dmd-program.github.io/aiul/aiul/assets/images/hero-image.jpg" />
+<meta property="twitter:title" content="API Documentation" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Standardizing AI usage in digital arts, empowering educators and students with clear AI usage guidelines.","headline":"API Documentation","image":"https://dmd-program.github.io/aiul/aiul/assets/images/hero-image.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://dmd-program.github.io/aiul/aiul/assets/images/hero-image.jpg"}},"url":"https://dmd-program.github.io/aiul/api-docs/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+  <!-- Load custom JavaScript files from page front matter -->
+  
+</head>
+<body>
+  <!-- Header & Navigation -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header>
+  <div class="logo tag-text">
+    <a href="/aiul/">AIUL</a>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul>
+      
+        <li><a href="/aiul/" >Home</a></li>
+      
+        <li><a href="/aiul/licenses.html" >Licenses</a></li>
+      
+        <li><a href="/aiul/guide.html" >Guide</a></li>
+      
+        <li><a href="/aiul/api-docs/" class="active" aria-current="page">API</a></li>
+      
+        <li><a href="/aiul/tag-generator.html" >Tag Generator</a></li>
+      
+        <li><a href="/aiul/declaration-generator.html" >Usage Declaration</a></li>
+      
+        <li><a href="/aiul/resources.html" >Resources</a></li>
+      
+    </ul>
+  </nav>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+    <span class="sr-only">Menu</span>
+    <div class="hamburger-icon">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="close-icon">
+      <span class="icon-close"></span>
+      <span class="icon-close"></span>
+    </div>
+  </button>
+</header>
+
+    <main id="main-content">
+      <div class="container">
+  <h1>AIUL API Documentation</h1>
+  
+  <p class="lead">
+    The AIUL API provides programmatic access to all license information, modifiers, combinations, and associated images for easy integration into external websites and applications.
+  </p>
+
+  <section id="quick-start" class="section">
+    <h2>Quick Start</h2>
+    
+    <h3>Option 1: JavaScript Widget (Easiest)</h3>
+    <p>Add this script to your HTML and use simple data attributes:</p>
+    <pre><code>&lt;script src="https://dmd-program.github.io/aiul/assets/js/aiul-widget.js"&gt;&lt;/script&gt;
+&lt;div class="aiul-badge" data-license="NA"&gt;&lt;/div&gt;
+&lt;div class="aiul-badge" data-license="CD" data-modifier="3D"&gt;&lt;/div&gt;</code></pre>
+    <p><a href="/aiul/assets/js/widget-examples.html">View live widget examples →</a></p>
+
+    <h3>Option 2: Direct API Access</h3>
+    <p>Fetch JSON data directly from the API endpoints:</p>
+    <pre><code>fetch('https://dmd-program.github.io/aiul/api/licenses.json')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+  </section>
+
+  <section id="endpoints" class="section">
+    <h2>API Endpoints</h2>
+    
+    <div class="endpoint">
+      <h3>Main API</h3>
+      <code>GET https://dmd-program.github.io/aiul/api/v1.json</code>
+      <p>Returns complete AIUL data including licenses, modifiers, combinations, and usage levels.</p>
+      <a href="/aiul/api/v1.json" target="_blank">View endpoint →</a>
+    </div>
+
+    <div class="endpoint">
+      <h3>Licenses</h3>
+      <code>GET https://dmd-program.github.io/aiul/api/licenses.json</code>
+      <p>Returns all available licenses with metadata and image URLs.</p>
+      <a href="/aiul/api/licenses.json" target="_blank">View endpoint →</a>
+    </div>
+
+    <div class="endpoint">
+      <h3>Modifiers</h3>
+      <code>GET https://dmd-program.github.io/aiul/api/modifiers.json</code>
+      <p>Returns all available domain modifiers.</p>
+      <a href="/aiul/api/modifiers.json" target="_blank">View endpoint →</a>
+    </div>
+
+    <div class="endpoint">
+      <h3>Combinations</h3>
+      <code>GET https://dmd-program.github.io/aiul/api/combinations.json</code>
+      <p>Returns all license + modifier combinations (48 total).</p>
+      <a href="/aiul/api/combinations.json" target="_blank">View endpoint →</a>
+    </div>
+  </section>
+
+  <section id="examples" class="section">
+    <h2>Usage Examples</h2>
+
+    <h3>Display License Badge</h3>
+    <pre><code>async function displayLicenseBadge(licenseCode) {
+  const response = await fetch('https://dmd-program.github.io/aiul/api/licenses.json');
+  const data = await response.json();
+  const license = data.data.find(l => l.code === licenseCode);
+  
+  if (license) {
+    document.body.innerHTML += `
+      &lt;a href="${license.url}" target="_blank"&gt;
+        &lt;img src="${license.image}" alt="${license.title}" /&gt;
+      &lt;/a&gt;
+    `;
+  }
+}
+
+displayLicenseBadge('NA');</code></pre>
+
+    <h3>Display Combination Badge</h3>
+    <pre><code>async function displayCombination(licenseCode, modifierCode) {
+  const response = await fetch('https://dmd-program.github.io/aiul/api/combinations.json');
+  const data = await response.json();
+  const code = `${licenseCode}-${modifierCode}`;
+  const combination = data.data.find(c => c.code === code);
+  
+  if (combination) {
+    document.body.innerHTML += `
+      &lt;a href="${combination.url}" target="_blank"&gt;
+        &lt;img src="${combination.image}" 
+             alt="${combination.code}"
+             title="${combination.license.title} - ${combination.modifier.title}" /&gt;
+      &lt;/a&gt;
+    `;
+  }
+}
+
+displayCombination('CD', '3D');</code></pre>
+
+    <h3>React Component</h3>
+    <pre><code>import React, { useState, useEffect } from 'react';
+
+function AIULBadge({ licenseCode, modifierCode = null }) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const endpoint = modifierCode 
+      ? 'https://dmd-program.github.io/aiul/api/combinations.json'
+      : 'https://dmd-program.github.io/aiul/api/licenses.json';
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(result => {
+        let item;
+        if (modifierCode) {
+          const code = `${licenseCode}-${modifierCode}`;
+          item = result.data.find(c => c.code === code);
+        } else {
+          item = result.data.find(l => l.code === licenseCode);
+        }
+        setData(item);
+      });
+  }, [licenseCode, modifierCode]);
+
+  if (!data) return &lt;div&gt;Loading...&lt;/div&gt;;
+
+  return (
+    &lt;a href={data.url} target="_blank" rel="noopener noreferrer"&gt;
+      &lt;img src={data.image} alt={data.code || data.title} /&gt;
+    &lt;/a&gt;
+  );
+}
+
+export default AIULBadge;</code></pre>
+
+    <h3>Nuxt 4 / Vue 3 Component</h3>
+    <pre><code>&lt;template&gt;
+  &lt;a 
+    v-if="badge" 
+    :href="badge.url" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="aiul-badge-link"
+  &gt;
+    &lt;img 
+      :src="badge.image" 
+      :alt="badge.code || badge.title"
+      :title="badgeTitle"
+      :style="{ height: height }"
+    /&gt;
+  &lt;/a&gt;
+  &lt;div v-else-if="loading"&gt;Loading...&lt;/div&gt;
+  &lt;div v-else-if="error" class="error"&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+import { ref, computed, onMounted } from 'vue'
+
+interface Props {
+  licenseCode: string
+  modifierCode?: string
+  height?: string
+}
+
+const props = withDefaults(defineProps&lt;Props&gt;(), {
+  modifierCode: undefined,
+  height: '50px'
+})
+
+const badge = ref(null)
+const loading = ref(true)
+const error = ref('')
+
+const badgeTitle = computed(() =&gt; {
+  if (!badge.value) return ''
+  if (props.modifierCode) {
+    return `${badge.value.license.title} - ${badge.value.modifier.title}`
+  }
+  return `${badge.value.title} - ${badge.value.fullName}`
+})
+
+const loadBadge = async () =&gt; {
+  try {
+    const endpoint = props.modifierCode
+      ? 'https://dmd-program.github.io/aiul/api/combinations.json'
+      : 'https://dmd-program.github.io/aiul/api/licenses.json'
+
+    const response = await fetch(endpoint)
+    if (!response.ok) throw new Error('Failed to fetch badge data')
+    
+    const data = await response.json()
+    
+    if (props.modifierCode) {
+      const code = `${props.licenseCode}-${props.modifierCode}`
+      badge.value = data.data.find((c: any) =&gt; c.code === code)
+      if (!badge.value) {
+        error.value = `Combination not found: ${code}`
+      }
+    } else {
+      badge.value = data.data.find((l: any) =&gt; l.code === props.licenseCode)
+      if (!badge.value) {
+        error.value = `License not found: ${props.licenseCode}`
+      }
+    }
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : 'Failed to load badge'
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(() =&gt; {
+  loadBadge()
+})
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.aiul-badge-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.9em;
+}
+&lt;/style&gt;</code></pre>
+
+    <p><strong>Usage in Nuxt 4:</strong></p>
+    <pre><code>&lt;!-- components/AIULBadge.vue (save the component above) --&gt;
+
+&lt;!-- In your page or component --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;AIULBadge license-code="NA" /&gt;
+    &lt;AIULBadge license-code="CD" modifier-code="3D" /&gt;
+    &lt;AIULBadge license-code="IU" modifier-code="WR" height="70px" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+
+    <p><strong>With Composable (for reusability):</strong></p>
+    <pre><code>// composables/useAIULBadge.ts
+export const useAIULBadge = () =&gt; {
+  const fetchBadge = async (licenseCode: string, modifierCode?: string) =&gt; {
+    const endpoint = modifierCode
+      ? 'https://dmd-program.github.io/aiul/api/combinations.json'
+      : 'https://dmd-program.github.io/aiul/api/licenses.json'
+
+    const { data } = await useFetch(endpoint)
+    
+    if (!data.value) throw new Error('Failed to fetch badge data')
+
+    if (modifierCode) {
+      const code = `${licenseCode}-${modifierCode}`
+      return data.value.data.find((c: any) =&gt; c.code === code)
+    }
+    
+    return data.value.data.find((l: any) =&gt; l.code === licenseCode)
+  }
+
+  return {
+    fetchBadge
+  }
+}
+
+// Usage in component
+&lt;script setup&gt;
+const { fetchBadge } = useAIULBadge()
+const badge = await fetchBadge('CD', '3D')
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <section id="response-format" class="section">
+    <h2>Response Format</h2>
+
+    <h3>License Object</h3>
+    <pre><code>{
+  "id": "na",
+  "code": "NA",
+  "title": "AIUL-NA",
+  "fullName": "Not Allowed",
+  "version": "1.0.0",
+  "url": "https://dmd-program.github.io/aiul/licenses/na/1.0.0/",
+  "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na.png",
+  "released": "2025-12-09"
+}</code></pre>
+
+    <h3>Combination Object</h3>
+    <pre><code>{
+  "id": "na-3d",
+  "code": "NA-3D",
+  "license": {
+    "id": "na",
+    "code": "NA",
+    "title": "AIUL-NA"
+  },
+  "modifier": {
+    "id": "3d",
+    "code": "3D",
+    "title": "3D Design"
+  },
+  "url": "https://dmd-program.github.io/aiul/combinations/na-3d.html",
+  "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na-3d.png"
+}</code></pre>
+  </section>
+
+  <section id="cors" class="section">
+    <h2>CORS & Usage</h2>
+    <p>All API endpoints support CORS and can be accessed from any domain. There are no rate limits, but please cache responses appropriately.</p>
+    <p>The API data is regenerated on every site build. Check the <code>generated</code> timestamp in responses to see when data was last updated.</p>
+  </section>
+
+  <section id="resources" class="section">
+    <h2>Additional Resources</h2>
+    <ul>
+      <li><a href="/aiul/assets/js/widget-examples.html">Interactive Widget Examples</a></li>
+      <li><a href="/aiul/api/README.md">Complete API Documentation (Markdown)</a></li>
+      <li><a href="/aiul/guide.html">AIUL Usage Guide</a></li>
+      <li><a href="https://github.com/dmd-program/aiul">GitHub Repository</a></li>
+    </ul>
+  </section>
+</div>
+
+<style>
+.section {
+  margin: 40px 0;
+}
+.endpoint {
+  background: #f8f9fa;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+}
+.endpoint code {
+  background: #e9ecef;
+  padding: 8px 12px;
+  display: inline-block;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 20px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+.lead {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 30px;
+}
+</style>
+
+    </main>
+    <!-- Footer -->
+<footer>
+  <p class="bold">AI Usage License Project created by faculty in the Penn State DMD Program. CC-BY-4.0</p>
+  <p>
+    Submit issues or suggestions here: <a class="bold" href="https://github.com/dmd-program/aiul/issues">https://github.com/dmd-program/aiul/issues</a>
+  </p>
+  <p>
+    Note: This project is an intial draft to gather community feedback, and is not necessarily a functional website nor does it contain finalized language.
+  </p>
+  <p class="footer-links">
+    <a href="/aiul/legal-disclaimer.html">Legal Disclaimer</a>
+  </p>
+</footer>
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (menuToggle) {
+          menuToggle.addEventListener('click', function() {
+            // Check current state
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle the menu state
+            nav.classList.toggle('active');
+            
+            // Update ARIA attribute - toggle between true/false
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            // Focus first menu item when opened
+            if (!isExpanded) {
+              setTimeout(function() {
+                const firstMenuItem = nav.querySelector('a');
+                if (firstMenuItem) {
+                  firstMenuItem.focus();
+                }
+              }, 100);
+            }
+          });
+          
+          // Add keyboard support
+          menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              menuToggle.click();
+            }
+          });
+          
+          // Close menu when pressing Escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+              nav.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
+              menuToggle.focus();
+            }
+          });
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIUL Widget Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .test-section h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .status.loading { background: #fff3cd; color: #856404; }
+    .status.success { background: #d4edda; color: #155724; }
+    .status.error { background: #f8d7da; color: #721c24; }
+    .aiul-badge {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>AIUL Widget Test Page</h1>
+  
+  <div id="api-status" class="status loading">Testing API connectivity...</div>
+  
+  <div class="test-section">
+    <h2>Test 1: Single License Badge</h2>
+    <p>Testing: AIUL-NA</p>
+    <div class="aiul-badge" data-license="NA"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: License + Modifier Badge</h2>
+    <p>Testing: CD-3D</p>
+    <div class="aiul-badge" data-license="CD" data-modifier="3D"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 3: Multiple Badges</h2>
+    <p>Testing: All base licenses</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <div class="aiul-badge" data-license="NA"></div>
+      <div class="aiul-badge" data-license="WA"></div>
+      <div class="aiul-badge" data-license="CD"></div>
+      <div class="aiul-badge" data-license="TC"></div>
+      <div class="aiul-badge" data-license="DP"></div>
+      <div class="aiul-badge" data-license="IU"></div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 4: Invalid License (Error Handling)</h2>
+    <p>Testing: Invalid code "XX"</p>
+    <div class="aiul-badge" data-license="XX"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 5: Custom Height</h2>
+    <p>Testing: Height set to 70px</p>
+    <div class="aiul-badge" data-license="IU" data-modifier="WR" data-height="70px"></div>
+  </div>
+
+  <div id="console-log" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+    <h2>Console Log</h2>
+    <pre id="log-output" style="white-space: pre-wrap; font-size: 12px;"></pre>
+  </div>
+
+  <script>
+    // Capture console logs
+    const logOutput = document.getElementById('log-output');
+    const originalLog = console.log;
+    const originalError = console.error;
+    
+    function addLog(type, ...args) {
+      const message = args.map(arg => 
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      ).join(' ');
+      logOutput.textContent += `[${type}] ${message}\n`;
+      if (type === 'ERROR') originalError(...args);
+      else originalLog(...args);
+    }
+    
+    console.log = (...args) => addLog('LOG', ...args);
+    console.error = (...args) => addLog('ERROR', ...args);
+
+    // Test API connectivity
+    async function testAPI() {
+      const statusEl = document.getElementById('api-status');
+      const baseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? `${window.location.protocol}//${window.location.host}/aiul/api`
+        : 'https://dmd-program.github.io/aiul/api';
+      
+      console.log('Testing API at:', baseUrl);
+      
+      try {
+        const response = await fetch(`${baseUrl}/licenses.json`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(`API responded with ${data.data.length} licenses`);
+        statusEl.className = 'status success';
+        statusEl.textContent = `✓ API Connected - ${data.data.length} licenses loaded`;
+      } catch (error) {
+        console.error('API Error:', error);
+        statusEl.className = 'status error';
+        statusEl.textContent = `✗ API Error: ${error.message}`;
+      }
+    }
+
+    testAPI();
+  </script>
+
+  <!-- Load the widget -->
+  <script src="./aiul-widget.js"></script>
+</body>
+</html>
