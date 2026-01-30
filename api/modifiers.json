@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-01-30T16:18:20.833Z",
+  "data": [
+    {
+      "id": "3d",
+      "code": "3D",
+      "title": "3D Design",
+      "fullName": "3-Dimensional Design",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/3d/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "audio",
+      "code": "AU",
+      "title": "Audio",
+      "fullName": "Audio",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/audio/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "code",
+      "code": "CO",
+      "title": "Code",
+      "fullName": "Code",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/code/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "image",
+      "code": "IM",
+      "title": "Image",
+      "fullName": "Image",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/image/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "mixed-media",
+      "code": "MX",
+      "title": "Mixed Media",
+      "fullName": "Mixed Media",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/mixed-media/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "traditional-media",
+      "code": "TR",
+      "title": "Traditional Media",
+      "fullName": "Traditional Media",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/traditional-media/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "video",
+      "code": "VD",
+      "title": "Video",
+      "fullName": "Video",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/video/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "writing",
+      "code": "WR",
+      "title": "Writing",
+      "fullName": "Writing",
+      "version": "1.0.0",
+      "url": "https://dmd-program.github.io/aiul/modifiers/writing/1.0.0/",
+      "released": "2025-12-09T00:00:00.000Z"
+    }
+  ]
+}

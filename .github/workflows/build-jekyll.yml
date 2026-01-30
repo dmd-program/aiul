@@ -31,8 +31,14 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci || npm install
 
+      - name: Download fonts
+        run: npm run download-fonts
+
       - name: Generate license images
         run: npm run generate-images
+
+      - name: Generate API
+        run: npm run generate-api
 
       - name: Build Jekyll site
         run: bundle exec jekyll build

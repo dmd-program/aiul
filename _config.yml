@@ -48,16 +48,12 @@ exclude:
   - vendor/ruby/
   - README.md
 
-# Files to ignore when watching for changes (prevents infinite regeneration loop)
-# But still allow them to be copied to the destination
-watch_exclude:
-  - assets/images/licenses
-
 # Navigation
 navigation:
   - {name: Home, link: '/'}
   - {name: Licenses, link: '/licenses.html'}
   - {name: Guide, link: '/guide.html'}
+  - {name: API, link: '/api-docs/'}
   - {name: Tag Generator, link: '/tag-generator.html'}
   - {name: Usage Declaration, link: '/declaration-generator.html'}
   - {name: Resources, link: '/resources.html'}
