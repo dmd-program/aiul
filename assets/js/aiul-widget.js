@@ -45,8 +45,13 @@
 
     const img = document.createElement('img');
     img.alt = modifierCode ? `${licenseCode}-${modifierCode}` : licenseCode;
-    img.style.height = container.dataset.height || '50px';
+    // Set explicit height for proper retina rendering (images are 2x resolution)
+    const height = container.dataset.height || '28px';
+    img.style.height = height;
+    img.style.width = 'auto'; // Maintain aspect ratio
     img.style.display = 'block';
+    // Tell browser this is a 2x image for retina
+    img.style.imageRendering = 'auto';
 
     if (modifierCode) {
       const code = `${licenseCode}-${modifierCode}`;
