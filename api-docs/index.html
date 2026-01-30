@@ -216,7 +216,7 @@ export default AIULBadge;</code></pre>
       :src="badge.image" 
       :alt="badge.code || badge.title"
       :title="badgeTitle"
-      :style="{ height: height }"
+      :style="{ height: height, width: 'auto' }"
     /&gt;
   &lt;/a&gt;
   &lt;div v-else-if="loading"&gt;Loading...&lt;/div&gt;
@@ -234,7 +234,7 @@ interface Props {
 
 const props = withDefaults(defineProps&lt;Props&gt;(), {
   modifierCode: undefined,
-  height: '50px'
+  height: '28px'
 })
 
 const badge = ref(null)
