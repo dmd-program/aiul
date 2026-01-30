@@ -2,8 +2,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const { createCanvas, loadImage } = require('canvas');
+const { createCanvas, loadImage, registerFont } = require('canvas');
 const { JSDOM } = require('jsdom');
+
+// Register local fonts
+const fontsDir = path.join(__dirname, '..', 'assets', 'fonts');
+registerFont(path.join(fontsDir, 'Kanit-Regular.ttf'), { family: 'Kanit', weight: 'normal' });
+registerFont(path.join(fontsDir, 'Kanit-Bold.ttf'), { family: 'Kanit', weight: 'bold' });
 
 // Create a virtual DOM environment
 const dom = new JSDOM(`<!DOCTYPE html><html><body>
@@ -106,10 +111,9 @@ function createSVG(licenseCode, modifierCode = null, forPNG = false) {
   // Create SVG with embedded styles
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}">`;
   
-  // Add embedded font and exact styling for better rendering
+  // Add embedded font styling (fonts are registered with canvas)
   svg += `<defs>
       <style>
-          @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&amp;display=swap');
           .tag-text { 
               font-family: 'Kanit', sans-serif;
               font-weight: 700;

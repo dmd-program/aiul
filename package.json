@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Generates static license images for the AIUL Project",
   "scripts": {
+    "download-fonts": "node scripts/download-fonts.js",
     "generate-images": "node scripts/generate-license-images.js"
   },
   "dependencies": {
