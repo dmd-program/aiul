@@ -87,14 +87,14 @@ Use this license for research papers, creative briefs, project planning, and ass
 
 AIUL-CD can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-CD-WR](/combinations/cd-wr/) - Writing assignments with conceptual development
-- [AIUL-CD-IM](/combinations/cd-im/) - Image work with conceptual development
-- [AIUL-CD-VD](/combinations/cd-vd/) - Video work with conceptual development
-- [AIUL-CD-AU](/combinations/cd-au/) - Audio work with conceptual development
-- [AIUL-CD-3D](/combinations/cd-3d/) - 3D work with conceptual development
-- [AIUL-CD-TR](/combinations/cd-tr/) - Traditional media with conceptual development
-- [AIUL-CD-MX](/combinations/cd-mx/) - Mixed media with conceptual development
-- [AIUL-CD-CO](/combinations/cd-co/) - Code with conceptual development
+- [AIUL-CD-WR](/aiul/combinations/cd-wr.html) - Writing assignments with conceptual development
+- [AIUL-CD-IM](/aiul/combinations/cd-im.html) - Image work with conceptual development
+- [AIUL-CD-VD](/aiul/combinations/cd-vd.html) - Video work with conceptual development
+- [AIUL-CD-AU](/aiul/combinations/cd-au.html) - Audio work with conceptual development
+- [AIUL-CD-3D](/aiul/combinations/cd-3d.html) - 3D work with conceptual development
+- [AIUL-CD-TR](/aiul/combinations/cd-tr.html) - Traditional media with conceptual development
+- [AIUL-CD-MX](/aiul/combinations/cd-mx.html) - Mixed media with conceptual development
+- [AIUL-CD-CO](/aiul/combinations/cd-co.html) - Code with conceptual development
 
 ## Frequently Asked Questions
 

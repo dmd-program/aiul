@@ -87,14 +87,14 @@ Use this license for visual arts, creative writing, and design assignments where
 
 AIUL-DP can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-DP-WR](/combinations/dp-wr/) - Writing assignments with directed production
-- [AIUL-DP-IM](/combinations/dp-im/) - Image work with directed production
-- [AIUL-DP-VD](/combinations/dp-vd/) - Video work with directed production
-- [AIUL-DP-AU](/combinations/dp-au/) - Audio work with directed production
-- [AIUL-DP-3D](/combinations/dp-3d/) - 3D work with directed production
-- [AIUL-DP-TR](/combinations/dp-tr/) - Traditional media with directed production
-- [AIUL-DP-MX](/combinations/dp-mx/) - Mixed media with directed production
-- [AIUL-DP-CO](/combinations/dp-co/) - Code with directed production
+- [AIUL-DP-WR](/aiul/combinations/dp-wr.html) - Writing assignments with directed production
+- [AIUL-DP-IM](/aiul/combinations/dp-im.html) - Image work with directed production
+- [AIUL-DP-VD](/aiul/combinations/dp-vd.html) - Video work with directed production
+- [AIUL-DP-AU](/aiul/combinations/dp-au.html) - Audio work with directed production
+- [AIUL-DP-3D](/aiul/combinations/dp-3d.html) - 3D work with directed production
+- [AIUL-DP-TR](/aiul/combinations/dp-tr.html) - Traditional media with directed production
+- [AIUL-DP-MX](/aiul/combinations/dp-mx.html) - Mixed media with directed production
+- [AIUL-DP-CO](/aiul/combinations/dp-co.html) - Code with directed production
 
 ## Frequently Asked Questions
 

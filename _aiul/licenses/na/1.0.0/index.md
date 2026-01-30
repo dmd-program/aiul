@@ -58,14 +58,14 @@ Use this license for traditional exams, foundational skill-building exercises, a
 
 AIUL-NA can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-NA-WR](/combinations/na-wr/) - Writing assignments with no AI
-- [AIUL-NA-IM](/combinations/na-im/) - Image work with no AI
-- [AIUL-NA-VD](/combinations/na-vd/) - Video work with no AI
-- [AIUL-NA-AU](/combinations/na-au/) - Audio work with no AI
-- [AIUL-NA-3D](/combinations/na-3d/) - 3D work with no AI
-- [AIUL-NA-TR](/combinations/na-tr/) - Traditional media with no AI
-- [AIUL-NA-MX](/combinations/na-mx/) - Mixed media with no AI
-- [AIUL-NA-CO](/combinations/na-co/) - Code with no AI
+- [AIUL-NA-WR](/aiul/combinations/na-wr.html) - Writing assignments with no AI
+- [AIUL-NA-IM](/aiul/combinations/na-im.html) - Image work with no AI
+- [AIUL-NA-VD](/aiul/combinations/na-vd.html) - Video work with no AI
+- [AIUL-NA-AU](/aiul/combinations/na-au.html) - Audio work with no AI
+- [AIUL-NA-3D](/aiul/combinations/na-3d.html) - 3D work with no AI
+- [AIUL-NA-TR](/aiul/combinations/na-tr.html) - Traditional media with no AI
+- [AIUL-NA-MX](/aiul/combinations/na-mx.html) - Mixed media with no AI
+- [AIUL-NA-CO](/aiul/combinations/na-co.html) - Code with no AI
 
 ## Version History
 

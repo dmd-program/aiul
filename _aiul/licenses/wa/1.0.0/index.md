@@ -87,14 +87,14 @@ Use this license for assignments that are typically expected to be completed wit
 
 AIUL-WA can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-WA-WR](/combinations/wa-wr/) - Writing assignments with approval
-- [AIUL-WA-IM](/combinations/wa-im/) - Image work with approval
-- [AIUL-WA-VD](/combinations/wa-vd/) - Video work with approval
-- [AIUL-WA-AU](/combinations/wa-au/) - Audio work with approval
-- [AIUL-WA-3D](/combinations/wa-3d/) - 3D work with approval
-- [AIUL-WA-TR](/combinations/wa-tr/) - Traditional media with approval
-- [AIUL-WA-MX](/combinations/wa-mx/) - Mixed media with approval
-- [AIUL-WA-CO](/combinations/wa-co/) - Code with approval
+- [AIUL-WA-WR](/aiul/combinations/wa-wr.html) - Writing assignments with approval
+- [AIUL-WA-IM](/aiul/combinations/wa-im.html) - Image work with approval
+- [AIUL-WA-VD](/aiul/combinations/wa-vd.html) - Video work with approval
+- [AIUL-WA-AU](/aiul/combinations/wa-au.html) - Audio work with approval
+- [AIUL-WA-3D](/aiul/combinations/wa-3d.html) - 3D work with approval
+- [AIUL-WA-TR](/aiul/combinations/wa-tr.html) - Traditional media with approval
+- [AIUL-WA-MX](/aiul/combinations/wa-mx.html) - Mixed media with approval
+- [AIUL-WA-CO](/aiul/combinations/wa-co.html) - Code with approval
 
 ## Frequently Asked Questions
 

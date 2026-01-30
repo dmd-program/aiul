@@ -45,12 +45,11 @@ module Jekyll
         combinations[license_code] = {} unless combinations[license_code]
         
         modifiers_data.each do |modifier_key, modifier_data|
+          modifier_code = modifier_data['code'] || modifier_key.upcase
           modifier_title = modifier_data['title'] || modifier_key.upcase
           modifier_full_name = modifier_data['full_name'] || modifier_key
           modifier_description = modifier_data['description'] || "No description available"
           modifier_example = modifier_data['example'] || "See the full modifier page for examples."
-          
-          modifier_code = modifier_title.to_s
           
           # Skip combinations with missing data
           if license_code.empty? || modifier_code.empty?
@@ -72,6 +71,8 @@ module Jekyll
                 'when_to_use' => license_when_to_use
               },
               {
+                'key' => modifier_key,
+                'code' => modifier_code,
                 'title' => modifier_title,
                 'full_name' => modifier_full_name,
                 'description' => modifier_description,
@@ -143,7 +144,8 @@ module Jekyll
       
       # Safely extract codes and ensure they're strings
       license_code = license['title'].to_s.sub(/^AIUL-/, '')
-      modifier_code = modifier['title'].to_s
+      modifier_code = modifier['code'] || modifier['title'].to_s
+      modifier_key = modifier['key'] || modifier_code.downcase
       
       # Ensure these values aren't blank
       raise ArgumentError, "License code cannot be empty" if license_code.empty?
@@ -182,7 +184,7 @@ module Jekyll
         'modifier_name' => modifier_name,
         'modifier_description' => modifier_description,
         'modifier_example' => modifier_example,
-        'modifier_url' => "/modifiers/#{modifier_code.downcase}/1.0.0/",
+        'modifier_url' => "/modifiers/#{modifier_key}/1.0.0/",
         'combination_image_path' => "/assets/images/licenses/aiul-#{license_code.downcase}-#{modifier_code.downcase}.png",
         'permalink' => "/combinations/#{license_code.downcase}-#{modifier_code.downcase}.html"
       }

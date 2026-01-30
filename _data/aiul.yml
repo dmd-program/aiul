@@ -65,6 +65,7 @@ modifiers:
   latest: 1.0.0
   items:
     3d:
+      code: "3D"
       title: "3D Design"
       full_name: "3-Dimensional Design"
       latest: 1.0.0
@@ -73,6 +74,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/3d/1.0.0/
     audio:
+      code: "AU"
       title: "Audio"
       full_name: "Audio"
       latest: 1.0.0
@@ -81,6 +83,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/audio/1.0.0/
     code:
+      code: "CO"
       title: "Code"
       full_name: "Code"
       latest: 1.0.0
@@ -89,6 +92,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/code/1.0.0/
     image:
+      code: "IM"
       title: "Image"
       full_name: "Image"
       latest: 1.0.0
@@ -97,6 +101,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/image/1.0.0/
     mixed-media:
+      code: "MX"
       title: "Mixed Media"
       full_name: "Mixed Media"
       latest: 1.0.0
@@ -105,6 +110,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/mixed-media/1.0.0/
     traditional-media:
+      code: "TR"
       title: "Traditional Media"
       full_name: "Traditional Media"
       latest: 1.0.0
@@ -113,6 +119,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/traditional-media/1.0.0/
     video:
+      code: "VD"
       title: "Video"
       full_name: "Video"
       latest: 1.0.0
@@ -121,6 +128,7 @@ modifiers:
           released: 2025-12-09
           url: /aiul/modifiers/video/1.0.0/
     writing:
+      code: "WR"
       title: "Writing"
       full_name: "Writing"
       latest: 1.0.0

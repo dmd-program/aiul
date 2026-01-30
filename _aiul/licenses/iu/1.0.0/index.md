@@ -89,14 +89,14 @@ Use this license for assignments specifically focused on AI tools, prompt engine
 
 AIUL-IU can be combined with domain modifiers to specify the type of work:
 
-- [AIUL-IU-WR](/combinations/iu-wr/) - Writing assignments with integrated usage
-- [AIUL-IU-IM](/combinations/iu-im/) - Image work with integrated usage
-- [AIUL-IU-VD](/combinations/iu-vd/) - Video work with integrated usage
-- [AIUL-IU-AU](/combinations/iu-au/) - Audio work with integrated usage
-- [AIUL-IU-3D](/combinations/iu-3d/) - 3D work with integrated usage
-- [AIUL-IU-TR](/combinations/iu-tr/) - Traditional media with integrated usage
-- [AIUL-IU-MX](/combinations/iu-mx/) - Mixed media with integrated usage
-- [AIUL-IU-CO](/combinations/iu-co/) - Code with integrated usage
+- [AIUL-IU-WR](/aiul/combinations/iu-wr.html) - Writing assignments with integrated usage
+- [AIUL-IU-IM](/aiul/combinations/iu-im.html) - Image work with integrated usage
+- [AIUL-IU-VD](/aiul/combinations/iu-vd.html) - Video work with integrated usage
+- [AIUL-IU-AU](/aiul/combinations/iu-au.html) - Audio work with integrated usage
+- [AIUL-IU-3D](/aiul/combinations/iu-3d.html) - 3D work with integrated usage
+- [AIUL-IU-TR](/aiul/combinations/iu-tr.html) - Traditional media with integrated usage
+- [AIUL-IU-MX](/aiul/combinations/iu-mx.html) - Mixed media with integrated usage
+- [AIUL-IU-CO](/aiul/combinations/iu-co.html) - Code with integrated usage
 
 ## Frequently Asked Questions
 
