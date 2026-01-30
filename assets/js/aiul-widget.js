@@ -3,7 +3,12 @@
  * Easily embed AIUL license badges on your website
  * 
  * Usage:
+ * <!-- Recommended: CDN for faster loading -->
+ * <script src="https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/js/aiul-widget.js"></script>
+ * 
+ * <!-- Or direct from GitHub Pages -->
  * <script src="https://dmd-program.github.io/aiul/assets/js/aiul-widget.js"></script>
+ * 
  * <div class="aiul-badge" data-license="NA"></div>
  * <div class="aiul-badge" data-license="CD" data-modifier="3D"></div>
  */
