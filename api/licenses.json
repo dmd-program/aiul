@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated": "2026-01-30T16:18:20.833Z",
+  "generated": "2026-01-30T16:47:58.196Z",
   "data": [
     {
       "id": "na",
@@ -9,7 +9,7 @@
       "fullName": "Not Allowed",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/na/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-na.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -19,7 +19,7 @@
       "fullName": "With Approval",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/wa/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-wa.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-wa.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -29,7 +29,7 @@
       "fullName": "Conceptual Development",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/cd/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-cd.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-cd.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -39,7 +39,7 @@
       "fullName": "Transformative Collaboration",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/tc/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-tc.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-tc.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -49,7 +49,7 @@
       "fullName": "Directed Production",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/dp/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-dp.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-dp.png",
       "released": "2025-12-09T00:00:00.000Z"
     },
     {
@@ -59,7 +59,7 @@
       "fullName": "Integrated Usage",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/iu/1.0.0/",
-      "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-iu.png",
+      "image": "https://cdn.jsdelivr.net/gh/dmd-program/aiul@main/assets/images/licenses/aiul-iu.png",
       "released": "2025-12-09T00:00:00.000Z"
     }
   ]

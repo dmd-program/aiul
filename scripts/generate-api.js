@@ -11,12 +11,16 @@ const aiulData = yaml.load(fs.readFileSync(dataFilePath, 'utf8'));
 // Base URL for GitHub Pages
 const baseUrl = 'https://dmd-program.github.io/aiul';
 
+// CDN URL for static assets (images)
+const cdnUrl = 'https://cdn.jsdelivr.net/gh/dmd-program/aiul@main';
+
 // Generate API data
 function generateAPI() {
   const api = {
     version: '1.0.0',
     generated: new Date().toISOString(),
     baseUrl: baseUrl,
+    cdnUrl: cdnUrl,
     documentation: `${baseUrl}/guide.html`,
     
     licenses: [],
@@ -40,7 +44,7 @@ function generateAPI() {
       fullName: license.full_name,
       version: version,
       url: fullUrl,
-      image: `${baseUrl}/assets/images/licenses/aiul-${key}.png`,
+      image: `${cdnUrl}/assets/images/licenses/aiul-${key}.png`,
       released: license.versions[version].released
     });
   }
@@ -98,7 +102,7 @@ function generateAPI() {
           title: modifier.title
         },
         url: `${baseUrl}/combinations/${combinationKey}.html`,
-        image: `${baseUrl}/assets/images/licenses/aiul-${combinationKey}.png`
+        image: `${cdnUrl}/assets/images/licenses/aiul-${combinationKey}.png`
       });
     }
   }
