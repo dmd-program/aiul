@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIUL Widget Examples</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    h1 { color: #333; }
+    h2 { color: #666; margin-top: 40px; }
+    .example {
+      background: #f5f5f5;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .example-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .demo {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .aiul-badge {
+      margin: 10px;
+    }
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>AIUL Widget Integration Examples</h1>
+  
+  <p>
+    The AIUL Widget makes it easy to display AI Usage & Licensing badges on your website.
+    Simply include the widget script and add HTML elements with data attributes.
+  </p>
+
+  <h2>Installation</h2>
+  <div class="example">
+    <div class="example-title">1. Include the widget script in your HTML:</div>
+    <pre><code>&lt;script src="https://dmd-program.github.io/aiul/assets/js/aiul-widget.js"&gt;&lt;/script&gt;</code></pre>
+  </div>
+
+  <h2>Basic Usage</h2>
+  
+  <div class="example">
+    <div class="example-title">Display a single license:</div>
+    <pre><code>&lt;div class="aiul-badge" data-license="NA"&gt;&lt;/div&gt;</code></pre>
+    <div class="demo">
+      <div class="aiul-badge" data-license="NA"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Display a license with modifier:</div>
+    <pre><code>&lt;div class="aiul-badge" data-license="CD" data-modifier="3D"&gt;&lt;/div&gt;</code></pre>
+    <div class="demo">
+      <div class="aiul-badge" data-license="CD" data-modifier="3D"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Custom height:</div>
+    <pre><code>&lt;div class="aiul-badge" data-license="IU" data-modifier="WR" data-height="70px"&gt;&lt;/div&gt;</code></pre>
+    <div class="demo">
+      <div class="aiul-badge" data-license="IU" data-modifier="WR" data-height="70px"></div>
+    </div>
+  </div>
+
+  <h2>All License Types</h2>
+  <div class="example">
+    <div class="example-title">Available licenses:</div>
+    <div class="demo badges-row">
+      <div class="aiul-badge" data-license="NA"></div>
+      <div class="aiul-badge" data-license="WA"></div>
+      <div class="aiul-badge" data-license="CD"></div>
+      <div class="aiul-badge" data-license="TC"></div>
+      <div class="aiul-badge" data-license="DP"></div>
+      <div class="aiul-badge" data-license="IU"></div>
+    </div>
+  </div>
+
+  <h2>License + Modifier Combinations</h2>
+  <div class="example">
+    <div class="example-title">Code modifiers:</div>
+    <div class="demo badges-row">
+      <div class="aiul-badge" data-license="CD" data-modifier="CO"></div>
+      <div class="aiul-badge" data-license="TC" data-modifier="CO"></div>
+      <div class="aiul-badge" data-license="DP" data-modifier="CO"></div>
+      <div class="aiul-badge" data-license="IU" data-modifier="CO"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Image modifiers:</div>
+    <div class="demo badges-row">
+      <div class="aiul-badge" data-license="CD" data-modifier="IM"></div>
+      <div class="aiul-badge" data-license="TC" data-modifier="IM"></div>
+      <div class="aiul-badge" data-license="DP" data-modifier="IM"></div>
+      <div class="aiul-badge" data-license="IU" data-modifier="IM"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="example-title">Writing modifiers:</div>
+    <div class="demo badges-row">
+      <div class="aiul-badge" data-license="CD" data-modifier="WR"></div>
+      <div class="aiul-badge" data-license="TC" data-modifier="WR"></div>
+      <div class="aiul-badge" data-license="DP" data-modifier="WR"></div>
+      <div class="aiul-badge" data-license="IU" data-modifier="WR"></div>
+    </div>
+  </div>
+
+  <h2>JavaScript API</h2>
+  <div class="example">
+    <div class="example-title">Manually initialize badges after dynamic content loads:</div>
+    <pre><code>// Add badges dynamically
+document.body.innerHTML += '&lt;div class="aiul-badge" data-license="NA"&gt;&lt;/div&gt;';
+
+// Re-initialize widget
+window.AIULWidget.initialize();</code></pre>
+  </div>
+
+  <h2>Available Modifiers</h2>
+  <div class="example">
+    <ul>
+      <li><strong>3D</strong> - 3-Dimensional Design</li>
+      <li><strong>AU</strong> - Audio</li>
+      <li><strong>CO</strong> - Code</li>
+      <li><strong>IM</strong> - Image</li>
+      <li><strong>MX</strong> - Mixed Media</li>
+      <li><strong>TR</strong> - Traditional Media</li>
+      <li><strong>VD</strong> - Video</li>
+      <li><strong>WR</strong> - Writing</li>
+    </ul>
+  </div>
+
+  <!-- Use relative path for local testing, falls back to CDN if needed -->
+  <script>
+    // Try to load widget from same directory first (for local testing)
+    const script = document.createElement('script');
+    script.src = './aiul-widget.js';
+    script.onerror = function() {
+      // Fallback to full URL if local fails
+      const fallback = document.createElement('script');
+      fallback.src = 'https://dmd-program.github.io/aiul/assets/js/aiul-widget.js';
+      document.body.appendChild(fallback);
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
