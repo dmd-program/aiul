@@ -46,7 +46,7 @@ title: AIUL Licenses
       {% for modifier_key in site.data.aiul.modifiers.items %}
         {% assign modifier = modifier_key[1] %}
       <tr>
-        <td><strong><a href="{{ modifier.versions[modifier.latest].url }}">-{{ modifier.title }}</a></strong> ({{ modifier.full_name }})</td>
+        <td><strong><a href="{{ modifier.versions[modifier.latest].url }}">-{{ modifier.code }}</a></strong> ({{ modifier.full_name }})</td>
         <td>{{ modifier.description }}</td>
         <td>{{ modifier.example }}</td>
       </tr>
