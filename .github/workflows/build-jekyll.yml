@@ -28,6 +28,13 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
+      # canvas 2.x (license images) ships prebuilt binaries up to Node 20;
+      # on newer Node it tries to compile and the runner lacks its libraries
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Install Node.js dependencies
         run: npm ci || npm install
 
