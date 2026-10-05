@@ -14,6 +14,52 @@ const baseUrl = 'https://dmd-program.github.io/aiul';
 // CDN URL for static assets (images)
 const cdnUrl = 'https://cdn.jsdelivr.net/gh/dmd-program/aiul@main';
 
+// Front matter and body of a Jekyll page ("---\nyaml\n---\nbody")
+function readPage(file) {
+  if (!fs.existsSync(file)) return { data: {}, body: '' };
+  const text = fs.readFileSync(file, 'utf8');
+  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  return match ? { data: yaml.load(match[1]) || {}, body: match[2] } : { data: {}, body: text };
+}
+
+// The bullet points under a "## Heading" in a page body, as plain text
+function bulletsUnder(body, heading) {
+  const lines = body.split(/\r?\n/);
+  const start = lines.findIndex((line) => line.trim().toLowerCase() === `## ${heading}`.toLowerCase());
+  if (start < 0) return [];
+  const out = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^#{1,2}\s/.test(line)) break;
+    const item = line.match(/^\s*[-*]\s+(.*)$/);
+    if (item) out.push(item[1].replace(/\*\*|__/g, '').trim());
+  }
+  return out;
+}
+
+// What a license means, from its page (_licenses/aiul-<id>.md) and the
+// versioned page its URL points to (_aiul/licenses/<id>/<version>/index.md)
+function licenseDetails(key, version) {
+  const page = readPage(path.join(__dirname, '..', '_licenses', `aiul-${key}.md`));
+  const versioned = readPage(path.join(__dirname, '..', '_aiul', 'licenses', key, version, 'index.md'));
+  const students = bulletsUnder(versioned.body, 'Guidelines for Students');
+  return {
+    description: page.data.description || '',
+    syllabusText: page.data.syllabus_text || '',
+    whenToUse: page.data.when_to_use || [],
+    requirements: page.data.requirements || [],
+    studentGuidelines: students.length ? students : bulletsUnder(page.body, 'Guidelines for Students')
+  };
+}
+
+// What a modifier covers, from its page (_modifiers/<id>.md)
+function modifierDetails(key) {
+  const page = readPage(path.join(__dirname, '..', '_modifiers', `${key}.md`));
+  return {
+    description: page.data.description || '',
+    examples: page.data.example || ''
+  };
+}
+
 // Generate API data
 function generateAPI() {
   const api = {
@@ -45,7 +91,8 @@ function generateAPI() {
       version: version,
       url: fullUrl,
       image: `${cdnUrl}/assets/images/licenses/aiul-${key}.png`,
-      released: license.versions[version].released
+      released: license.versions[version].released,
+      ...licenseDetails(key, version)
     });
   }
 
@@ -62,7 +109,8 @@ function generateAPI() {
       fullName: modifier.full_name,
       version: version,
       url: fullUrl,
-      released: modifier.versions[version].released
+      released: modifier.versions[version].released,
+      ...modifierDetails(key)
     });
   }
 
