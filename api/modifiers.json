@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated": "2026-02-02T18:25:40.227Z",
+  "generated": "2026-10-05T17:19:27.473Z",
   "data": [
     {
       "id": "3d",
@@ -9,7 +9,9 @@
       "fullName": "3-Dimensional Design",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/3d/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving 3D modeling, animation, or virtual environments",
+      "examples": "3D modeling, game design, virtual reality, architectural visualization, character animation"
     },
     {
       "id": "audio",
@@ -18,7 +20,9 @@
       "fullName": "Audio",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/audio/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments focusing on sound design or music",
+      "examples": "Music composition, podcast production, sound design, audio mixing, voice recording"
     },
     {
       "id": "code",
@@ -27,7 +31,9 @@
       "fullName": "Code",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/code/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving programming or software development",
+      "examples": "Software development, web applications, algorithms, data science scripts, computational art"
     },
     {
       "id": "image",
@@ -36,7 +42,9 @@
       "fullName": "Image",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/image/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving static visual content",
+      "examples": "Photography, digital illustration, graphic design, posters, data visualization"
     },
     {
       "id": "mixed-media",
@@ -45,7 +53,9 @@
       "fullName": "Mixed Media",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/mixed-media/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments that span multiple media types",
+      "examples": "Multimedia installations, websites, interactive experiences, transmedia projects"
     },
     {
       "id": "traditional-media",
@@ -54,7 +64,9 @@
       "fullName": "Traditional Media",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/traditional-media/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving physical art media where AI might be used for planning or reference",
+      "examples": "Painting, drawing, sculpture, printmaking, ceramics, textiles"
     },
     {
       "id": "video",
@@ -63,7 +75,9 @@
       "fullName": "Video",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/video/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving moving images",
+      "examples": "Films, animations, motion graphics, video essays, promotional videos"
     },
     {
       "id": "writing",
@@ -72,7 +86,9 @@
       "fullName": "Writing",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/writing/1.0.0/",
-      "released": "2025-12-09T00:00:00.000Z"
+      "released": "2025-12-09T00:00:00.000Z",
+      "description": "For assignments involving substantial written content",
+      "examples": "Essays, research papers, creative writing, reports, scripts, poetry"
     }
   ]
 }

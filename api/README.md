@@ -48,11 +48,26 @@ Returns all available licenses.
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/licenses/na/1.0.0/",
       "image": "https://dmd-program.github.io/aiul/assets/images/licenses/aiul-na.png",
-      "released": "2025-12-09"
+      "released": "2025-12-09",
+      "description": "No AI tools allowed. All work must be entirely student-generated.",
+      "syllabusText": "no AI tools are permitted. All work must be entirely your own without assistance from AI tools.",
+      "whenToUse": ["The learning objective specifically involves developing skills without computational assistance", "..."],
+      "requirements": ["Students may not use AI generation tools for any part of the assignment", "..."],
+      "studentGuidelines": ["Complete all aspects of the assignment without using AI tools", "..."]
     }
   ]
 }
 ```
+
+| Field | Description |
+|---|---|
+| `description` | One-sentence summary of what the license allows |
+| `syllabusText` | Wording to paste into a syllabus or assignment brief |
+| `whenToUse` | Situations the license is meant for (for instructors) |
+| `requirements` | What students must and must not do |
+| `studentGuidelines` | Practical guidance for students working under the license |
+
+These come from each license's page (`_licenses/aiul-<id>.md` front matter, and the "Guidelines for Students" section of `_aiul/licenses/<id>/<version>/index.md`).
 
 ### Modifiers
 `GET /api/modifiers.json`
@@ -72,7 +87,9 @@ Returns all available domain modifiers.
       "fullName": "3-Dimensional Design",
       "version": "1.0.0",
       "url": "https://dmd-program.github.io/aiul/modifiers/3d/1.0.0/",
-      "released": "2025-12-09"
+      "released": "2025-12-09",
+      "description": "For assignments involving 3D modeling, animation, or virtual environments",
+      "examples": "3D modeling, game design, virtual reality, architectural visualization, character animation"
     }
   ]
 }
